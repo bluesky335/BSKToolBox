@@ -15,6 +15,20 @@
 		C44DC0FB1F19A956003EF7D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44DC0F91F19A956003EF7D6 /* LaunchScreen.storyboard */; };
 		C44DC1061F19A956003EF7D6 /* BSKToolsBoxDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC1051F19A956003EF7D6 /* BSKToolsBoxDemoTests.m */; };
 		C44DC1111F19A956003EF7D6 /* BSKToolsBoxDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC1101F19A956003EF7D6 /* BSKToolsBoxDemoUITests.m */; };
+		C44DC1251F19AA2A003EF7D6 /* NSString+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC1241F19AA2A003EF7D6 /* NSString+BSKUtils.m */; };
+		C44DC12B1F19ADE7003EF7D6 /* NSString+SHA.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC12A1F19ADE7003EF7D6 /* NSString+SHA.m */; };
+		C44DC12E1F19BAED003EF7D6 /* NSSet+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC12D1F19BAED003EF7D6 /* NSSet+BSKUtils.m */; };
+		C44DC1341F19BDE6003EF7D6 /* BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC1331F19BDE6003EF7D6 /* BSKUtils.m */; };
+		C44DC1371F19BE02003EF7D6 /* UIViewController+BSKToast.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC1361F19BE02003EF7D6 /* UIViewController+BSKToast.m */; };
+		C4858A821F1C573B00831C89 /* UIColor+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A811F1C573B00831C89 /* UIColor+BSKUtils.m */; };
+		C4858A851F1C5B1A00831C89 /* UIView+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A841F1C5B1A00831C89 /* UIView+BSKUtils.m */; };
+		C4858A881F1C5BE400831C89 /* NSObject+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A871F1C5BE400831C89 /* NSObject+BSKUtils.m */; };
+		C4858A9C1F1C64CC00831C89 /* BSKViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A961F1C64CC00831C89 /* BSKViewPager.m */; };
+		C4858A9D1F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A981F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.m */; };
+		C4858A9E1F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4858A991F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.xib */; };
+		C4858A9F1F1C64CC00831C89 /* BSKViewPagerFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A9B1F1C64CC00831C89 /* BSKViewPagerFlowLayout.m */; };
+		C4858AA31F1C64F400831C89 /* BSKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858AA21F1C64F400831C89 /* BSKAlertView.m */; };
+		C4858AAB1F1C682D00831C89 /* BSKDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858AAA1F1C682D00831C89 /* BSKDrawerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +65,35 @@
 		C44DC10C1F19A956003EF7D6 /* BSKToolsBoxDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSKToolsBoxDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44DC1101F19A956003EF7D6 /* BSKToolsBoxDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSKToolsBoxDemoUITests.m; sourceTree = "<group>"; };
 		C44DC1121F19A956003EF7D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C44DC1231F19AA2A003EF7D6 /* NSString+BSKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BSKUtils.h"; sourceTree = "<group>"; };
+		C44DC1241F19AA2A003EF7D6 /* NSString+BSKUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BSKUtils.m"; sourceTree = "<group>"; };
+		C44DC1261F19ADB0003EF7D6 /* BSKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKUtils.h; sourceTree = "<group>"; };
+		C44DC1291F19ADE7003EF7D6 /* NSString+SHA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA.h"; sourceTree = "<group>"; };
+		C44DC12A1F19ADE7003EF7D6 /* NSString+SHA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA.m"; sourceTree = "<group>"; };
+		C44DC12C1F19BAED003EF7D6 /* NSSet+BSKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+BSKUtils.h"; sourceTree = "<group>"; };
+		C44DC12D1F19BAED003EF7D6 /* NSSet+BSKUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+BSKUtils.m"; sourceTree = "<group>"; };
+		C44DC1301F19BD95003EF7D6 /* BSKToolBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKToolBox.h; sourceTree = "<group>"; };
+		C44DC1331F19BDE6003EF7D6 /* BSKUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKUtils.m; sourceTree = "<group>"; };
+		C44DC1351F19BE02003EF7D6 /* UIViewController+BSKToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BSKToast.h"; sourceTree = "<group>"; };
+		C44DC1361F19BE02003EF7D6 /* UIViewController+BSKToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BSKToast.m"; sourceTree = "<group>"; };
+		C44DC1381F19BEB1003EF7D6 /* BSKConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKConstant.h; sourceTree = "<group>"; };
+		C4858A801F1C573B00831C89 /* UIColor+BSKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BSKUtils.h"; sourceTree = "<group>"; };
+		C4858A811F1C573B00831C89 /* UIColor+BSKUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BSKUtils.m"; sourceTree = "<group>"; };
+		C4858A831F1C5B1A00831C89 /* UIView+BSKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BSKUtils.h"; sourceTree = "<group>"; };
+		C4858A841F1C5B1A00831C89 /* UIView+BSKUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BSKUtils.m"; sourceTree = "<group>"; };
+		C4858A861F1C5BE400831C89 /* NSObject+BSKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BSKUtils.h"; sourceTree = "<group>"; };
+		C4858A871F1C5BE400831C89 /* NSObject+BSKUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BSKUtils.m"; sourceTree = "<group>"; };
+		C4858A951F1C64CC00831C89 /* BSKViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKViewPager.h; sourceTree = "<group>"; };
+		C4858A961F1C64CC00831C89 /* BSKViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKViewPager.m; sourceTree = "<group>"; };
+		C4858A971F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKViewPagerCollectionViewCell.h; sourceTree = "<group>"; };
+		C4858A981F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKViewPagerCollectionViewCell.m; sourceTree = "<group>"; };
+		C4858A991F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSKViewPagerCollectionViewCell.xib; sourceTree = "<group>"; };
+		C4858A9A1F1C64CC00831C89 /* BSKViewPagerFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKViewPagerFlowLayout.h; sourceTree = "<group>"; };
+		C4858A9B1F1C64CC00831C89 /* BSKViewPagerFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKViewPagerFlowLayout.m; sourceTree = "<group>"; };
+		C4858AA11F1C64F400831C89 /* BSKAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKAlertView.h; sourceTree = "<group>"; };
+		C4858AA21F1C64F400831C89 /* BSKAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKAlertView.m; sourceTree = "<group>"; };
+		C4858AA91F1C682D00831C89 /* BSKDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKDrawerViewController.h; sourceTree = "<group>"; };
+		C4858AAA1F1C682D00831C89 /* BSKDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKDrawerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +124,7 @@
 		C44DC0DF1F19A956003EF7D6 = {
 			isa = PBXGroup;
 			children = (
+				C44DC11E1F19A9FF003EF7D6 /* BSKToolBox */,
 				C44DC0EA1F19A956003EF7D6 /* BSKToolsBoxDemo */,
 				C44DC1041F19A956003EF7D6 /* BSKToolsBoxDemoTests */,
 				C44DC10F1F19A956003EF7D6 /* BSKToolsBoxDemoUITests */,
@@ -138,6 +182,90 @@
 				C44DC1121F19A956003EF7D6 /* Info.plist */,
 			);
 			path = BSKToolsBoxDemoUITests;
+			sourceTree = "<group>";
+		};
+		C44DC11E1F19A9FF003EF7D6 /* BSKToolBox */ = {
+			isa = PBXGroup;
+			children = (
+				C44DC11F1F19A9FF003EF7D6 /* Category */,
+				C44DC1201F19A9FF003EF7D6 /* Utils */,
+				C44DC1211F19A9FF003EF7D6 /* View */,
+				C44DC1221F19A9FF003EF7D6 /* ViewController */,
+				C44DC1301F19BD95003EF7D6 /* BSKToolBox.h */,
+				C44DC1381F19BEB1003EF7D6 /* BSKConstant.h */,
+			);
+			path = BSKToolBox;
+			sourceTree = "<group>";
+		};
+		C44DC11F1F19A9FF003EF7D6 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C44DC1351F19BE02003EF7D6 /* UIViewController+BSKToast.h */,
+				C44DC1361F19BE02003EF7D6 /* UIViewController+BSKToast.m */,
+				C44DC1231F19AA2A003EF7D6 /* NSString+BSKUtils.h */,
+				C44DC1241F19AA2A003EF7D6 /* NSString+BSKUtils.m */,
+				C44DC1291F19ADE7003EF7D6 /* NSString+SHA.h */,
+				C44DC12A1F19ADE7003EF7D6 /* NSString+SHA.m */,
+				C44DC12C1F19BAED003EF7D6 /* NSSet+BSKUtils.h */,
+				C44DC12D1F19BAED003EF7D6 /* NSSet+BSKUtils.m */,
+				C4858A801F1C573B00831C89 /* UIColor+BSKUtils.h */,
+				C4858A811F1C573B00831C89 /* UIColor+BSKUtils.m */,
+				C4858A831F1C5B1A00831C89 /* UIView+BSKUtils.h */,
+				C4858A841F1C5B1A00831C89 /* UIView+BSKUtils.m */,
+				C4858A861F1C5BE400831C89 /* NSObject+BSKUtils.h */,
+				C4858A871F1C5BE400831C89 /* NSObject+BSKUtils.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		C44DC1201F19A9FF003EF7D6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C44DC1261F19ADB0003EF7D6 /* BSKUtils.h */,
+				C44DC1331F19BDE6003EF7D6 /* BSKUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C44DC1211F19A9FF003EF7D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4858AA01F1C64E600831C89 /* BSKAlertView */,
+				C4858A941F1C64CC00831C89 /* BSKViewPaher */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C44DC1221F19A9FF003EF7D6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C4858AA91F1C682D00831C89 /* BSKDrawerViewController.h */,
+				C4858AAA1F1C682D00831C89 /* BSKDrawerViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C4858A941F1C64CC00831C89 /* BSKViewPaher */ = {
+			isa = PBXGroup;
+			children = (
+				C4858A951F1C64CC00831C89 /* BSKViewPager.h */,
+				C4858A961F1C64CC00831C89 /* BSKViewPager.m */,
+				C4858A971F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.h */,
+				C4858A981F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.m */,
+				C4858A991F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.xib */,
+				C4858A9A1F1C64CC00831C89 /* BSKViewPagerFlowLayout.h */,
+				C4858A9B1F1C64CC00831C89 /* BSKViewPagerFlowLayout.m */,
+			);
+			path = BSKViewPaher;
+			sourceTree = "<group>";
+		};
+		C4858AA01F1C64E600831C89 /* BSKAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				C4858AA11F1C64F400831C89 /* BSKAlertView.h */,
+				C4858AA21F1C64F400831C89 /* BSKAlertView.m */,
+			);
+			path = BSKAlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4858A9E1F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.xib in Resources */,
 				C44DC0FB1F19A956003EF7D6 /* LaunchScreen.storyboard in Resources */,
 				C44DC0F81F19A956003EF7D6 /* Assets.xcassets in Resources */,
 				C44DC0F61F19A956003EF7D6 /* Main.storyboard in Resources */,
@@ -276,9 +405,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4858A851F1C5B1A00831C89 /* UIView+BSKUtils.m in Sources */,
 				C44DC0F31F19A956003EF7D6 /* ViewController.m in Sources */,
+				C44DC1371F19BE02003EF7D6 /* UIViewController+BSKToast.m in Sources */,
+				C44DC12E1F19BAED003EF7D6 /* NSSet+BSKUtils.m in Sources */,
 				C44DC0F01F19A956003EF7D6 /* AppDelegate.m in Sources */,
+				C4858A821F1C573B00831C89 /* UIColor+BSKUtils.m in Sources */,
+				C4858A9D1F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.m in Sources */,
+				C4858A9F1F1C64CC00831C89 /* BSKViewPagerFlowLayout.m in Sources */,
+				C4858AAB1F1C682D00831C89 /* BSKDrawerViewController.m in Sources */,
+				C44DC1251F19AA2A003EF7D6 /* NSString+BSKUtils.m in Sources */,
+				C4858AA31F1C64F400831C89 /* BSKAlertView.m in Sources */,
+				C4858A9C1F1C64CC00831C89 /* BSKViewPager.m in Sources */,
 				C44DC0ED1F19A956003EF7D6 /* main.m in Sources */,
+				C44DC12B1F19ADE7003EF7D6 /* NSString+SHA.m in Sources */,
+				C44DC1341F19BDE6003EF7D6 /* BSKUtils.m in Sources */,
+				C4858A881F1C5BE400831C89 /* NSObject+BSKUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +658,7 @@
 				C44DC1171F19A956003EF7D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C44DC1181F19A956003EF7D6 /* Build configuration list for PBXNativeTarget "BSKToolsBoxDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +667,7 @@
 				C44DC11A1F19A956003EF7D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C44DC11B1F19A956003EF7D6 /* Build configuration list for PBXNativeTarget "BSKToolsBoxDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +676,7 @@
 				C44DC11D1F19A956003EF7D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
