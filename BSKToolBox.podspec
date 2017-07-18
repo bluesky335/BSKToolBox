@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BSKToolBox"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "我的工具箱，一些封装好的方便的方法、工具类、视图和控制器等等。"
 
   # This description is used to generate tags and improve search results.
@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
 
   s.author             = { "刘万林" => "chinabluesky335@gmail.com" }
   # Or just: s.author    = "刘万林"
-  # s.authors            = { "刘万林" => "947818238@qq.com" }
+  # s.authors            = { "刘万林" => "chinabluesky335@gmail.com" }
   s.social_media_url   = "http://weibo.com/bluesky335"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/bluesky335/BSKToolBox.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/bluesky335/BSKToolBox.git", :tag => s.version.to_s }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,10 +91,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "BSKToolBox", " BSKToolBox/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "BSKToolBox/*.{h,m}","BSKToolBox/Category/*.{h,m}","BSKToolBox/Utils/*.{h,m}","BSKToolBox/ViewController/*.{h,m}","BSKToolBox/View/**/*.{h,m}"
+#s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
+# s.public_header_files = "Classes/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -105,7 +105,7 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  # s.resource  = "icon.png"
+  s.resource  = "BSKToolBox/View/BSKViewPaher/*.xib"
   # s.resources = "Resources/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
@@ -117,7 +117,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-   s.framework  = "UIKit"
+  s.framework  = "UIKit","Foundation"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
