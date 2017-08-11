@@ -21,6 +21,7 @@
 		C44DC12E1F19BAED003EF7D6 /* NSSet+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC12D1F19BAED003EF7D6 /* NSSet+BSKUtils.m */; };
 		C44DC1341F19BDE6003EF7D6 /* BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC1331F19BDE6003EF7D6 /* BSKUtils.m */; };
 		C44DC1371F19BE02003EF7D6 /* UIViewController+BSKToast.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC1361F19BE02003EF7D6 /* UIViewController+BSKToast.m */; };
+		C455227A1F3D8EF500201567 /* BSKRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C45522791F3D8EF500201567 /* BSKRadioButton.m */; };
 		C4858A821F1C573B00831C89 /* UIColor+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A811F1C573B00831C89 /* UIColor+BSKUtils.m */; };
 		C4858A851F1C5B1A00831C89 /* UIView+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A841F1C5B1A00831C89 /* UIView+BSKUtils.m */; };
 		C4858A881F1C5BE400831C89 /* NSObject+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A871F1C5BE400831C89 /* NSObject+BSKUtils.m */; };
@@ -80,6 +81,8 @@
 		C44DC1351F19BE02003EF7D6 /* UIViewController+BSKToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BSKToast.h"; sourceTree = "<group>"; };
 		C44DC1361F19BE02003EF7D6 /* UIViewController+BSKToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BSKToast.m"; sourceTree = "<group>"; };
 		C44DC1381F19BEB1003EF7D6 /* BSKConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKConstant.h; sourceTree = "<group>"; };
+		C45522781F3D8EF500201567 /* BSKRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKRadioButton.h; sourceTree = "<group>"; };
+		C45522791F3D8EF500201567 /* BSKRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKRadioButton.m; sourceTree = "<group>"; };
 		C4858A801F1C573B00831C89 /* UIColor+BSKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BSKUtils.h"; sourceTree = "<group>"; };
 		C4858A811F1C573B00831C89 /* UIColor+BSKUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BSKUtils.m"; sourceTree = "<group>"; };
 		C4858A831F1C5B1A00831C89 /* UIView+BSKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BSKUtils.h"; sourceTree = "<group>"; };
@@ -235,6 +238,7 @@
 		C44DC1211F19A9FF003EF7D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C45522771F3D8EEE00201567 /* BSKRadioButton */,
 				C4858AA01F1C64E600831C89 /* BSKAlertView */,
 				C4858A941F1C64CC00831C89 /* BSKViewPager */,
 			);
@@ -248,6 +252,15 @@
 				C4858AAA1F1C682D00831C89 /* BSKDrawerViewController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C45522771F3D8EEE00201567 /* BSKRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				C45522781F3D8EF500201567 /* BSKRadioButton.h */,
+				C45522791F3D8EF500201567 /* BSKRadioButton.m */,
+			);
+			path = BSKRadioButton;
 			sourceTree = "<group>";
 		};
 		C4858A941F1C64CC00831C89 /* BSKViewPager */ = {
@@ -416,6 +429,7 @@
 				C41A441F1F38398D005C6BF2 /* NSString+BSKCheck.m in Sources */,
 				C44DC12E1F19BAED003EF7D6 /* NSSet+BSKUtils.m in Sources */,
 				C44DC0F01F19A956003EF7D6 /* AppDelegate.m in Sources */,
+				C455227A1F3D8EF500201567 /* BSKRadioButton.m in Sources */,
 				C4858A821F1C573B00831C89 /* UIColor+BSKUtils.m in Sources */,
 				C4858A9D1F1C64CC00831C89 /* BSKViewPagerCollectionViewCell.m in Sources */,
 				C4858A9F1F1C64CC00831C89 /* BSKViewPagerFlowLayout.m in Sources */,
