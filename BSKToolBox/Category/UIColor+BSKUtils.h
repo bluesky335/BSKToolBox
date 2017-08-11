@@ -12,13 +12,13 @@
 -(BOOL)bsk_isSameColor:(UIColor*_Nullable)color;
 
 /**
- <#Description#>
+ 由16进制数生成颜色
 
- @param hex <#hex description#>
- @return <#return value description#>
+ @param hex 16进制颜色:0xffffff
+ @return UIColor
  */
 +(UIColor * _Nonnull)bsk_ColorWithHex:(int32_t)hex;
++(UIColor * _Nonnull)bsk_ColorWithRGBAHex:(int32_t)hex;
 +(UIColor * _Nonnull)bsk_ColorWithHex:(int32_t)hex alpha:(CGFloat)a;
-
 +(UIColor * _Nonnull)bsk_colorWithRed:(unsigned short)r green:(unsigned short)g blue:(unsigned short)b alpha:(unsigned short)a;
 @end

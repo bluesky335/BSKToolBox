@@ -9,6 +9,7 @@
 
 //自定义的Log方法，用法同NSLog；
 #define BSKLog(FORMAT, ...) fprintf(stderr,"BSK:【%s : %d】\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#define BSKErrorLog(FORMAT, ...) fprintf(stderr,"BSK_E:【%s : %d】\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 
 #define UIColorFromeRGBA(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 

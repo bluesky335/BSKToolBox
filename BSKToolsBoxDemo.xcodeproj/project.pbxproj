@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C41A441F1F38398D005C6BF2 /* NSString+BSKCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = C41A441E1F38398D005C6BF2 /* NSString+BSKCheck.m */; };
 		C44DC0ED1F19A956003EF7D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC0EC1F19A956003EF7D6 /* main.m */; };
 		C44DC0F01F19A956003EF7D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC0EF1F19A956003EF7D6 /* AppDelegate.m */; };
 		C44DC0F31F19A956003EF7D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC0F21F19A956003EF7D6 /* ViewController.m */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C41A441D1F38398D005C6BF2 /* NSString+BSKCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BSKCheck.h"; sourceTree = "<group>"; };
+		C41A441E1F38398D005C6BF2 /* NSString+BSKCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BSKCheck.m"; sourceTree = "<group>"; };
 		C44DC0E81F19A956003EF7D6 /* BSKToolsBoxDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSKToolsBoxDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44DC0EC1F19A956003EF7D6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C44DC0EE1F19A956003EF7D6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				C4858A841F1C5B1A00831C89 /* UIView+BSKUtils.m */,
 				C4858A861F1C5BE400831C89 /* NSObject+BSKUtils.h */,
 				C4858A871F1C5BE400831C89 /* NSObject+BSKUtils.m */,
+				C41A441D1F38398D005C6BF2 /* NSString+BSKCheck.h */,
+				C41A441E1F38398D005C6BF2 /* NSString+BSKCheck.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -231,7 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				C4858AA01F1C64E600831C89 /* BSKAlertView */,
-				C4858A941F1C64CC00831C89 /* BSKViewPaher */,
+				C4858A941F1C64CC00831C89 /* BSKViewPager */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,7 +250,7 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		C4858A941F1C64CC00831C89 /* BSKViewPaher */ = {
+		C4858A941F1C64CC00831C89 /* BSKViewPager */ = {
 			isa = PBXGroup;
 			children = (
 				C4858A951F1C64CC00831C89 /* BSKViewPager.h */,
@@ -256,7 +261,7 @@
 				C4858A9A1F1C64CC00831C89 /* BSKViewPagerFlowLayout.h */,
 				C4858A9B1F1C64CC00831C89 /* BSKViewPagerFlowLayout.m */,
 			);
-			path = BSKViewPaher;
+			path = BSKViewPager;
 			sourceTree = "<group>";
 		};
 		C4858AA01F1C64E600831C89 /* BSKAlertView */ = {
@@ -408,6 +413,7 @@
 				C4858A851F1C5B1A00831C89 /* UIView+BSKUtils.m in Sources */,
 				C44DC0F31F19A956003EF7D6 /* ViewController.m in Sources */,
 				C44DC1371F19BE02003EF7D6 /* UIViewController+BSKToast.m in Sources */,
+				C41A441F1F38398D005C6BF2 /* NSString+BSKCheck.m in Sources */,
 				C44DC12E1F19BAED003EF7D6 /* NSSet+BSKUtils.m in Sources */,
 				C44DC0F01F19A956003EF7D6 /* AppDelegate.m in Sources */,
 				C4858A821F1C573B00831C89 /* UIColor+BSKUtils.m in Sources */,

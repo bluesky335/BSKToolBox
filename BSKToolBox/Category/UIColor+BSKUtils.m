@@ -20,6 +20,9 @@
 {
     return [UIColor bsk_ColorWithHex:hex alpha:1.0];
 }
++(UIColor * _Nonnull)bsk_ColorWithRGBAHex:(int32_t)hex{
+    return [UIColor colorWithRed:(((hex & 0xFF0000) >> 16))/255.0 green:(((hex &0xFF00) >>8))/255.0 blue:((hex &0xFF))/255.0 alpha:(((hex & 0xFF000000) >> 24))/255.0];
+}
 
 +(UIColor * _Nonnull)bsk_ColorWithHex:(int32_t)hex alpha:(CGFloat)a{
     return [UIColor colorWithRed:(((hex & 0xFF0000) >> 16))/255.0 green:(((hex &0xFF00) >>8))/255.0 blue:((hex &0xFF))/255.0 alpha:a];
