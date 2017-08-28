@@ -192,6 +192,7 @@
     if (_selectedIndex<self.titles.count) {
         [self.buttonCollectionView reloadData];
     }
+    [self.buttonCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     
     if (self.delegate&&[self.delegate respondsToSelector:@selector(ViewPager:didSelectedItemAtIndex:withStatus:)]) {
         [self.delegate ViewPager:self didSelectedItemAtIndex:selectedIndex withStatus:self.statusArray[selectedIndex].status];

@@ -9,23 +9,27 @@
 #import "UIViewController+BSKToast.h"
 #import "BSKToolBox.h"
 
-@interface BSKToastTask ()
-@property (strong, nonatomic) NSMutableArray<NSDictionary * > * task;
+
+@interface BSKToastConfig()
 @property (strong, nonatomic) NSNotification * kbWillShowNotification;
 @property (assign, nonatomic) CGSize keyBoardSize;
 @property (assign, nonatomic) BOOL isKeyboardShowing;
+@property (weak, nonatomic) UIView * ToastView;
+@property (weak, nonatomic) UILabel * ToastLabel;
 @end
 
-@implementation BSKToastTask
 
-+(instancetype)shareTask{
-    static BSKToastTask * roastTask = nil;
-    if (!roastTask) {
-        roastTask = [[BSKToastTask alloc] init];
+@implementation BSKToastConfig
+
++(instancetype)shareInstance{
+    static BSKToastConfig * Config = nil;
+    if (!Config) {
+        Config = [[BSKToastConfig alloc] init];
         
     }
-    return roastTask;
+    return Config;
 }
+
 
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
@@ -40,7 +44,7 @@
 
 -(void)keyboardWillShow:(NSNotification*)aNotification{
     self.kbWillShowNotification = aNotification;
-    [BSKToastTask shareTask].keyBoardSize =  [[aNotification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    [BSKToastConfig shareInstance].keyBoardSize =  [[aNotification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     self.isKeyboardShowing = YES;
 }
 
@@ -48,9 +52,37 @@
     self.isKeyboardShowing = NO;
 }
 
+
+@end
+
+//========================
+@interface BSKToastTask : NSObject
+@property (strong, nonatomic) NSMutableArray<NSDictionary * > * task;
++(instancetype)shareTask;
+@end
+
+//========================
+@implementation BSKToastTask
++(instancetype)shareTask{
+    static BSKToastTask * roastTask = nil;
+    if (!roastTask) {
+        roastTask = [[BSKToastTask alloc] init];
+        
+    }
+    return roastTask;
+}
+
 -(NSDictionary*)getToask{
     if (self.task.count>0) {
         NSDictionary * dic =self.task.firstObject;
+        return dic;
+    }else{
+        return nil;
+    }
+}
+-(NSDictionary*)getNextToask{
+    if (self.task.count>1) {
+        NSDictionary * dic =self.task[1];
         return dic;
     }else{
         return nil;
@@ -86,7 +118,7 @@
         return;
     }
     [[BSKToastTask shareTask] putTask:@{@"text":text,@"time":@(seconds)}];
-    [UIViewController bsk_MakeToast:text WithTime:seconds onView:[UIApplication sharedApplication].keyWindow error:nil];
+    [UIViewController bsk_MakeToast:text WithTime:seconds onView:[UIApplication sharedApplication].keyWindow error:nil Animate:YES];
 }
 -(void)bsk_MakeErrorToast:(NSString *)text WithTime:(double)seconds
 {
@@ -96,7 +128,7 @@
         return;
     }
     [[BSKToastTask shareTask] putTask:@{@"text":text,@"time":@(seconds),@"error":@"true"}];
-    [UIViewController bsk_MakeToast:text WithTime:seconds onView:[UIApplication sharedApplication].keyWindow error:@"true"];
+    [UIViewController bsk_MakeToast:text WithTime:seconds onView:[UIApplication sharedApplication].keyWindow error:@"true" Animate:YES];
 }
 
 
@@ -107,7 +139,7 @@
         return;
     }
     [[BSKToastTask shareTask] putTask:@{@"text":text,@"time":@(seconds)}];
-    [UIViewController bsk_MakeToast:text WithTime:seconds onView:[UIApplication sharedApplication].keyWindow error:nil];
+    [UIViewController bsk_MakeToast:text WithTime:seconds onView:[UIApplication sharedApplication].keyWindow error:nil Animate:YES];
 }
 
 
@@ -118,42 +150,58 @@
         return;
     }
     [[BSKToastTask shareTask] putTask:@{@"text":text,@"time":@(seconds),@"error":@"true"}];
-    [UIViewController bsk_MakeToast:text WithTime:seconds onView:[UIApplication sharedApplication].keyWindow error:@"true"];
+    [UIViewController bsk_MakeToast:text WithTime:seconds onView:[UIApplication sharedApplication].keyWindow error:@"true" Animate:YES];
 }
 
 +(void)bsk_MakeToast:(NSString *)text
             WithTime:(double)seconds
               onView:(UIView *)view
                error:(id)iserror
+             Animate:(BOOL) animate
 {
-    __block UIView * toastView = [[UIView alloc] init];
-    UILabel * toast = [[UILabel alloc]init];
-    UIFont * toastFont = [UIFont systemFontOfSize:15 weight:UIFontWeightThin];
-    toastView.alpha=0;
-    [toastView addSubview:toast];
-    [view addSubview:toastView];
-    toast.numberOfLines = 0;
-    toast.font = toastFont;
-    toast.text = text;
-    [toast sizeToFit];
+    NSLog(@"执行了一次");
+    UIView * toastView = [BSKToastConfig shareInstance].ToastView;
+    if (!toastView) {
+        toastView = [[UIView alloc] init];
+        BSKLog(@"初始化一个View",nil);
+        [BSKToastConfig shareInstance].ToastView = toastView;
+    }
     
-    if (toast.bounds.size.width+60>BSKScreenWidth) {
-        CGRect bounds = toast.bounds;
+    UILabel * toastLabel = [BSKToastConfig shareInstance].ToastLabel;
+    
+    if (!toastLabel) {
+        toastLabel = [[UILabel alloc]init];
+        BSKLog(@"初始化一个Labe",nil);
+        [BSKToastConfig shareInstance].ToastLabel = toastLabel;
+    }
+    
+    UIFont * toastFont = [UIFont systemFontOfSize:15 weight:UIFontWeightThin];
+    
+    [toastView addSubview:toastLabel];
+    [view addSubview:toastView];
+    toastLabel.numberOfLines = 1;
+    toastLabel.font = toastFont;
+    toastLabel.text = text;
+    [toastLabel sizeToFit];
+    
+    if (toastLabel.bounds.size.width+60>BSKScreenWidth) {
+        CGRect bounds = toastLabel.bounds;
         CGSize textSize = [text boundingRectWithSize:CGSizeMake(BSKScreenWidth-60, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:toastFont} context:nil].size;
         bounds.size = textSize;
-        toast.bounds = bounds;
+        toastLabel.numberOfLines = 0;
+        toastLabel.bounds = bounds;
     }
     
-    CGPoint toastCenter = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-(toast.bounds.size.height+20)-50);
-    if ([BSKToastTask shareTask].isKeyboardShowing) {
-        CGSize keyBoardSize = [BSKToastTask shareTask].keyBoardSize;
-        toastCenter.y=[UIScreen mainScreen].bounds.size.height-(toast.bounds.size.height+20)-10-keyBoardSize.height;
+    CGPoint toastCenter = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-(toastLabel.bounds.size.height+20)-50);
+    if ([BSKToastConfig shareInstance].isKeyboardShowing) {
+        CGSize keyBoardSize = [BSKToastConfig shareInstance].keyBoardSize;
+        toastCenter.y=[UIScreen mainScreen].bounds.size.height-(toastLabel.bounds.size.height+20)-10-keyBoardSize.height;
     }
     
-    toastView.bounds = CGRectMake(0, 0, toast.bounds.size.width+20, toast.bounds.size.height+20);
+    toastView.bounds = CGRectMake(0, 0, toastLabel.bounds.size.width+20, toastLabel.bounds.size.height+20);
     toastView.center = toastCenter;
-    toast.center = CGPointMake(toastView.bounds.size.width/2, toastView.bounds.size.height/2);
-    toast.textAlignment = NSTextAlignmentCenter;
+    toastLabel.center = CGPointMake(toastView.bounds.size.width/2, toastView.bounds.size.height/2);
+    toastLabel.textAlignment = NSTextAlignmentCenter;
     if (iserror) {
         toastView.backgroundColor = [UIColor colorWithRed:0xec/255 green:0x0f/255 blue:0x0e/255 alpha:1];
     }else{
@@ -164,27 +212,45 @@
     toastView.layer.shadowRadius = 4;
     toastView.layer.shadowOpacity = 0.5;
     toastView.layer.cornerRadius = 5;
-    toast.textColor = [UIColor whiteColor];
-    toastView.transform = CGAffineTransformMakeScale(1.5, 1.5);
-    [UIView animateWithDuration:0.25 animations:^{
-        toastView.alpha = 1;
-        toastView.transform = CGAffineTransformMakeScale(1, 1);
-    } completion:nil];
+    toastLabel.textColor = [UIColor whiteColor];
+    
+    if (animate) {
+        toastView.alpha=0;
+        toastView.transform = CGAffineTransformMakeScale(1.5, 1.5);
+        [UIView animateWithDuration:0.25 animations:^{
+            toastView.alpha = 1;
+            toastView.transform = CGAffineTransformMakeScale(1, 1);
+        } completion:nil];
+    }else{
+        toastView.alpha=1;
+    }
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(seconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [UIView animateWithDuration:0.25 animations:^{
-            toastView.alpha = 0;
-        } completion:^(BOOL finished) {
-            [toastView removeFromSuperview];
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [[BSKToastTask shareTask] popTask];
-            if ([BSKToastTask shareTask].task.count>0) {
+            BOOL hasNext = [BSKToastTask shareTask].task.count>0;
+            if (hasNext) {
                 NSDictionary * dic = [[BSKToastTask shareTask] getToask];
-                [UIViewController bsk_MakeToast:dic[@"text"] WithTime:[dic[@"time"] doubleValue] onView:[UIApplication sharedApplication].keyWindow error:dic[@"error"]];
+                BOOL animatedNext = ![dic[@"text"] isEqualToString:text];
+                if (animatedNext) {
+                    [UIView animateWithDuration:0.25 animations:^{
+                        toastView.alpha = 0;
+                    } completion:^(BOOL finished) {
+                        [toastView removeFromSuperview];
+                        [UIViewController bsk_MakeToast:dic[@"text"] WithTime:[dic[@"time"] doubleValue] onView:[UIApplication sharedApplication].keyWindow error:dic[@"error"] Animate:animatedNext];
+                    }];
+                }else{
+                    [UIViewController bsk_MakeToast:dic[@"text"] WithTime:[dic[@"time"] doubleValue] onView:[UIApplication sharedApplication].keyWindow error:dic[@"error"] Animate:animatedNext];
+                }
+            }else{
+                [UIView animateWithDuration:0.25 animations:^{
+                    toastView.alpha = 0;
+                } completion:^(BOOL finished) {
+                    [toastView removeFromSuperview];
+                }];
             }
-        }];
-        
-    });
+           
+        });
 }
 @end
 

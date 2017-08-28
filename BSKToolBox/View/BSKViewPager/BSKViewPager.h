@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger,BSKViewPagerItemAlignMode){
  可选方法，根据需求选择实现
  */
 @optional
+
 /**
  自定义没个item的宽度
 

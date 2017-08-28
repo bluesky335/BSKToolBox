@@ -8,12 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BSKToastTask : NSObject
+
+@interface BSKToastConfig : NSObject
+
 @property (strong, nonatomic,readonly) NSNotification * kbWillShowNotification;
 @property (assign, nonatomic,readonly) CGSize keyBoardSize;
 @property (assign, nonatomic,readonly) BOOL isKeyboardShowing;
-+(instancetype)shareTask;
+
+@property (strong, nonatomic) UIColor * ToastBackgroundColor;
+@property (strong, nonatomic) UIColor * ToastTextColor;
+@property (assign, nonatomic) CGFloat ToastCornerRadius;
+@property (assign, nonatomic) CGFloat ShadowAlpha;
+@property (assign, nonatomic) CGFloat ShadowRadius;
+
++(instancetype)shareInstance;
 -(void)getKeyBoardNotification;//如果想让提示的文字在键盘弹出时不被遮挡，请在APPDelegate里的application:didFinishLaunchingWithOptions:方法中调用一次这个方法，获得键盘弹出和隐藏的通知。
+
 @end
 
 @interface UIViewController (BSKToast)

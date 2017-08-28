@@ -23,6 +23,14 @@
    return [self bsk_matchesWithRegex:@"^(1[0-9])\\d{9}$"];
 }
 
+-(BOOL)bsk_isPhoneNumber{
+    return [self bsk_matchesWithRegex:@"(\\d{3}-\\d{8}|\\d{3}-\\d{7}|\\d{4}-\\d{8}|\\d{4}-\\d{7})|(1+\\d{10})|(\\d{8}|\\d{7})"];
+}
+
+-(BOOL)bsk_isTelephoneNumber{
+    return [self bsk_matchesWithRegex:@"(\\d{3}-\\d{8}|\\d{3}-\\d{7}|\\d{4}-\\d{8}|\\d{4}-\\d{7})|(\\d{8}|\\d{7})"];
+}
+
 -(BOOL)bsk_isEmailAddress{
     NSString * regex = @"^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];

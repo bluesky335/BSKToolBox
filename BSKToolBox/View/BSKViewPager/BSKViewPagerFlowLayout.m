@@ -50,6 +50,8 @@
             self.pager.rectView.frame = CGRectMake(rec.origin.x, self.pager.bounds.size.height-3, rec.size.width, 3);
         }];
     }
+    
+    
     return attributesToReturn;
 }
 
