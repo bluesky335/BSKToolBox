@@ -193,7 +193,7 @@
         [self.buttonCollectionView reloadData];
     }
     [self.buttonCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    
+    [self.buttonCollectionView setNeedsLayout];
     if (self.delegate&&[self.delegate respondsToSelector:@selector(ViewPager:didSelectedItemAtIndex:withStatus:)]) {
         [self.delegate ViewPager:self didSelectedItemAtIndex:selectedIndex withStatus:self.statusArray[selectedIndex].status];
     }else if (self.delegate&&[self.delegate respondsToSelector:@selector(ViewPager:didSelectedItemAtIndex:)]) {

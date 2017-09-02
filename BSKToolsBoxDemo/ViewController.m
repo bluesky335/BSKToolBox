@@ -9,24 +9,38 @@
 #import "ViewController.h"
 #import "BSKRadioButton.h"
 #import "BSKViewPager.h"
-
+#import "BSKSwitch.h"
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet BSKViewPager *viewPager;
+
+@property (weak, nonatomic) IBOutlet UIView *testView;
+@property (weak, nonatomic) IBOutlet BSKSwitch *testSwitch;
 
 @end
 
 @implementation ViewController
 - (IBAction)buttonAction:(id)sender {
-    
     [self bsk_MakeToast:@"提示消息！！" WithTime:2];
+    self.testView.transform = CGAffineTransformMakeScale(1, 1);
 }
 - (IBAction)anotherButtonAction:(id)sender {
+    self.testView.transform = CGAffineTransformMakeScale(0.5, 0.5);
     [self bsk_MakeToast:@"另一条提示消息！！hhhh啊季后赛的发挥kdh hjsdkjhsdfk kajsdhf Kjhaksdhfkjh卡获得发 jskdkhasdkh khkj空间哈卡萨丁回复看货到付款卡萨丁和客户独守空房建行卡水电费看 傲世三国防守打法" WithTime:2];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewPager.titles = @[@"qwert",@"erty",@"卡视角电",@"爽肤水",@"了会计师",@"啦啦啦啦",@"斤斤计较",@"叩叩叩",@"开局号",@"考虑拍个",@"帮您补发",@"口口声声",@"，了，了",@"来咯哦",@"欧派的撒出"];
+    
+    BSKSwitch * sw = [[BSKSwitch alloc] initWithFrame:CGRectMake(0, 0, 70, 30)];
+    sw.onText = @"ON";
+    sw.offText = @"OFF";
+    sw.buttonText = @"弹";
+    sw.center = self.view.center;
+    [self.view addSubview:sw];
+    
+    self.testView.transform = CGAffineTransformMakeScale(0.5, 0.5);
+    self.testView.frame = CGRectMake(100, 200, 100, 100);
     
 //    ================
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38709E5AABE1611F05390292 /* libPods-BSKToolsBoxDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D80C0A04CEF7E0694A689900 /* libPods-BSKToolsBoxDemoUITests.a */; };
+		3E005D96A6EC528D2F04B4B8 /* libPods-BSKToolsBoxDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B454733A3610CC7AA65E0955 /* libPods-BSKToolsBoxDemoTests.a */; };
 		C41A441F1F38398D005C6BF2 /* NSString+BSKCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = C41A441E1F38398D005C6BF2 /* NSString+BSKCheck.m */; };
 		C44DC0ED1F19A956003EF7D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC0EC1F19A956003EF7D6 /* main.m */; };
 		C44DC0F01F19A956003EF7D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC0EF1F19A956003EF7D6 /* AppDelegate.m */; };
@@ -22,6 +24,7 @@
 		C44DC1341F19BDE6003EF7D6 /* BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC1331F19BDE6003EF7D6 /* BSKUtils.m */; };
 		C44DC1371F19BE02003EF7D6 /* UIViewController+BSKToast.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DC1361F19BE02003EF7D6 /* UIViewController+BSKToast.m */; };
 		C455227A1F3D8EF500201567 /* BSKRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C45522791F3D8EF500201567 /* BSKRadioButton.m */; };
+		C480CD271F57FB06005204C9 /* BSKSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = C480CD261F57FB06005204C9 /* BSKSwitch.m */; };
 		C4858A821F1C573B00831C89 /* UIColor+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A811F1C573B00831C89 /* UIColor+BSKUtils.m */; };
 		C4858A851F1C5B1A00831C89 /* UIView+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A841F1C5B1A00831C89 /* UIView+BSKUtils.m */; };
 		C4858A881F1C5BE400831C89 /* NSObject+BSKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A871F1C5BE400831C89 /* NSObject+BSKUtils.m */; };
@@ -31,6 +34,7 @@
 		C4858A9F1F1C64CC00831C89 /* BSKViewPagerFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858A9B1F1C64CC00831C89 /* BSKViewPagerFlowLayout.m */; };
 		C4858AA31F1C64F400831C89 /* BSKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858AA21F1C64F400831C89 /* BSKAlertView.m */; };
 		C4858AAB1F1C682D00831C89 /* BSKDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4858AAA1F1C682D00831C89 /* BSKDrawerViewController.m */; };
+		F13056AFC538F72EEA309BCA /* libPods-BSKToolsBoxDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 150F40172F3FA990BEAFA48F /* libPods-BSKToolsBoxDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CAB26B8D2CB74027C29CFA5 /* Pods-BSKToolsBoxDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSKToolsBoxDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSKToolsBoxDemoTests/Pods-BSKToolsBoxDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		150F40172F3FA990BEAFA48F /* libPods-BSKToolsBoxDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BSKToolsBoxDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		493E7C95AF88C7FEF1367771 /* Pods-BSKToolsBoxDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSKToolsBoxDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSKToolsBoxDemo/Pods-BSKToolsBoxDemo.release.xcconfig"; sourceTree = "<group>"; };
+		676A869E63CFB8114DB69244 /* Pods-BSKToolsBoxDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSKToolsBoxDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSKToolsBoxDemoUITests/Pods-BSKToolsBoxDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8A9AF628881100538B434BB2 /* Pods-BSKToolsBoxDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSKToolsBoxDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BSKToolsBoxDemo/Pods-BSKToolsBoxDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		9E4BBD568BD7F671A6DEC07E /* Pods-BSKToolsBoxDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSKToolsBoxDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BSKToolsBoxDemoTests/Pods-BSKToolsBoxDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ADEFB37E9693083DFB094580 /* Pods-BSKToolsBoxDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSKToolsBoxDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BSKToolsBoxDemoUITests/Pods-BSKToolsBoxDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B454733A3610CC7AA65E0955 /* libPods-BSKToolsBoxDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BSKToolsBoxDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41A441D1F38398D005C6BF2 /* NSString+BSKCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BSKCheck.h"; sourceTree = "<group>"; };
 		C41A441E1F38398D005C6BF2 /* NSString+BSKCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BSKCheck.m"; sourceTree = "<group>"; };
 		C44DC0E81F19A956003EF7D6 /* BSKToolsBoxDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSKToolsBoxDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +95,8 @@
 		C44DC1381F19BEB1003EF7D6 /* BSKConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKConstant.h; sourceTree = "<group>"; };
 		C45522781F3D8EF500201567 /* BSKRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKRadioButton.h; sourceTree = "<group>"; };
 		C45522791F3D8EF500201567 /* BSKRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKRadioButton.m; sourceTree = "<group>"; };
+		C480CD251F57FB06005204C9 /* BSKSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKSwitch.h; sourceTree = "<group>"; };
+		C480CD261F57FB06005204C9 /* BSKSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKSwitch.m; sourceTree = "<group>"; };
 		C4858A801F1C573B00831C89 /* UIColor+BSKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BSKUtils.h"; sourceTree = "<group>"; };
 		C4858A811F1C573B00831C89 /* UIColor+BSKUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BSKUtils.m"; sourceTree = "<group>"; };
 		C4858A831F1C5B1A00831C89 /* UIView+BSKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BSKUtils.h"; sourceTree = "<group>"; };
@@ -100,6 +114,7 @@
 		C4858AA21F1C64F400831C89 /* BSKAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKAlertView.m; sourceTree = "<group>"; };
 		C4858AA91F1C682D00831C89 /* BSKDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKDrawerViewController.h; sourceTree = "<group>"; };
 		C4858AAA1F1C682D00831C89 /* BSKDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKDrawerViewController.m; sourceTree = "<group>"; };
+		D80C0A04CEF7E0694A689900 /* libPods-BSKToolsBoxDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BSKToolsBoxDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13056AFC538F72EEA309BCA /* libPods-BSKToolsBoxDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E005D96A6EC528D2F04B4B8 /* libPods-BSKToolsBoxDemoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,12 +138,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38709E5AABE1611F05390292 /* libPods-BSKToolsBoxDemoUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52A15EAE7E1BF95176F821CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				150F40172F3FA990BEAFA48F /* libPods-BSKToolsBoxDemo.a */,
+				B454733A3610CC7AA65E0955 /* libPods-BSKToolsBoxDemoTests.a */,
+				D80C0A04CEF7E0694A689900 /* libPods-BSKToolsBoxDemoUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C44DC0DF1F19A956003EF7D6 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +163,8 @@
 				C44DC1041F19A956003EF7D6 /* BSKToolsBoxDemoTests */,
 				C44DC10F1F19A956003EF7D6 /* BSKToolsBoxDemoUITests */,
 				C44DC0E91F19A956003EF7D6 /* Products */,
+				F0EB63DFBC96325CCDBF6531 /* Pods */,
+				52A15EAE7E1BF95176F821CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,6 +268,7 @@
 		C44DC1211F19A9FF003EF7D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C480CD241F57FAF0005204C9 /* BSKSwitch */,
 				C45522771F3D8EEE00201567 /* BSKRadioButton */,
 				C4858AA01F1C64E600831C89 /* BSKAlertView */,
 				C4858A941F1C64CC00831C89 /* BSKViewPager */,
@@ -263,6 +294,15 @@
 			path = BSKRadioButton;
 			sourceTree = "<group>";
 		};
+		C480CD241F57FAF0005204C9 /* BSKSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				C480CD251F57FB06005204C9 /* BSKSwitch.h */,
+				C480CD261F57FB06005204C9 /* BSKSwitch.m */,
+			);
+			path = BSKSwitch;
+			sourceTree = "<group>";
+		};
 		C4858A941F1C64CC00831C89 /* BSKViewPager */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +326,19 @@
 			path = BSKAlertView;
 			sourceTree = "<group>";
 		};
+		F0EB63DFBC96325CCDBF6531 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A9AF628881100538B434BB2 /* Pods-BSKToolsBoxDemo.debug.xcconfig */,
+				493E7C95AF88C7FEF1367771 /* Pods-BSKToolsBoxDemo.release.xcconfig */,
+				9E4BBD568BD7F671A6DEC07E /* Pods-BSKToolsBoxDemoTests.debug.xcconfig */,
+				0CAB26B8D2CB74027C29CFA5 /* Pods-BSKToolsBoxDemoTests.release.xcconfig */,
+				ADEFB37E9693083DFB094580 /* Pods-BSKToolsBoxDemoUITests.debug.xcconfig */,
+				676A869E63CFB8114DB69244 /* Pods-BSKToolsBoxDemoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,9 +346,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C44DC1151F19A956003EF7D6 /* Build configuration list for PBXNativeTarget "BSKToolsBoxDemo" */;
 			buildPhases = (
+				ACC7FF179DF07A7E9BF76287 /* [CP] Check Pods Manifest.lock */,
 				C44DC0E41F19A956003EF7D6 /* Sources */,
 				C44DC0E51F19A956003EF7D6 /* Frameworks */,
 				C44DC0E61F19A956003EF7D6 /* Resources */,
+				B9FA4864994F439E449B47F7 /* [CP] Embed Pods Frameworks */,
+				F7E7CB6FD6EE70ACDCC79244 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -310,9 +366,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C44DC1181F19A956003EF7D6 /* Build configuration list for PBXNativeTarget "BSKToolsBoxDemoTests" */;
 			buildPhases = (
+				F2E18EBBA4197EF011DE8A19 /* [CP] Check Pods Manifest.lock */,
 				C44DC0FD1F19A956003EF7D6 /* Sources */,
 				C44DC0FE1F19A956003EF7D6 /* Frameworks */,
 				C44DC0FF1F19A956003EF7D6 /* Resources */,
+				795DE8D1E66D8778D6A06993 /* [CP] Embed Pods Frameworks */,
+				E9571EA618DF0716D3956A81 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -328,9 +387,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C44DC11B1F19A956003EF7D6 /* Build configuration list for PBXNativeTarget "BSKToolsBoxDemoUITests" */;
 			buildPhases = (
+				A73043DE4758BEE26D7C6711 /* [CP] Check Pods Manifest.lock */,
 				C44DC1081F19A956003EF7D6 /* Sources */,
 				C44DC1091F19A956003EF7D6 /* Frameworks */,
 				C44DC10A1F19A956003EF7D6 /* Resources */,
+				C59585BA7C0F7F66A9645D04 /* [CP] Embed Pods Frameworks */,
+				F789FB5738DAF18C7FF19DAF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -418,6 +480,144 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		795DE8D1E66D8778D6A06993 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BSKToolsBoxDemoTests/Pods-BSKToolsBoxDemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A73043DE4758BEE26D7C6711 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ACC7FF179DF07A7E9BF76287 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B9FA4864994F439E449B47F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BSKToolsBoxDemo/Pods-BSKToolsBoxDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C59585BA7C0F7F66A9645D04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BSKToolsBoxDemoUITests/Pods-BSKToolsBoxDemoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9571EA618DF0716D3956A81 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BSKToolsBoxDemoTests/Pods-BSKToolsBoxDemoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2E18EBBA4197EF011DE8A19 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F789FB5738DAF18C7FF19DAF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BSKToolsBoxDemoUITests/Pods-BSKToolsBoxDemoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7E7CB6FD6EE70ACDCC79244 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BSKToolsBoxDemo/Pods-BSKToolsBoxDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C44DC0E41F19A956003EF7D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -428,6 +628,7 @@
 				C44DC1371F19BE02003EF7D6 /* UIViewController+BSKToast.m in Sources */,
 				C41A441F1F38398D005C6BF2 /* NSString+BSKCheck.m in Sources */,
 				C44DC12E1F19BAED003EF7D6 /* NSSet+BSKUtils.m in Sources */,
+				C480CD271F57FB06005204C9 /* BSKSwitch.m in Sources */,
 				C44DC0F01F19A956003EF7D6 /* AppDelegate.m in Sources */,
 				C455227A1F3D8EF500201567 /* BSKRadioButton.m in Sources */,
 				C4858A821F1C573B00831C89 /* UIColor+BSKUtils.m in Sources */,
@@ -587,6 +788,7 @@
 		};
 		C44DC1161F19A956003EF7D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A9AF628881100538B434BB2 /* Pods-BSKToolsBoxDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EM3XGA7J6B;
@@ -599,6 +801,7 @@
 		};
 		C44DC1171F19A956003EF7D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 493E7C95AF88C7FEF1367771 /* Pods-BSKToolsBoxDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EM3XGA7J6B;
@@ -611,6 +814,7 @@
 		};
 		C44DC1191F19A956003EF7D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E4BBD568BD7F671A6DEC07E /* Pods-BSKToolsBoxDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = EM3XGA7J6B;
@@ -624,6 +828,7 @@
 		};
 		C44DC11A1F19A956003EF7D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CAB26B8D2CB74027C29CFA5 /* Pods-BSKToolsBoxDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = EM3XGA7J6B;
@@ -637,6 +842,7 @@
 		};
 		C44DC11C1F19A956003EF7D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADEFB37E9693083DFB094580 /* Pods-BSKToolsBoxDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = EM3XGA7J6B;
 				INFOPLIST_FILE = BSKToolsBoxDemoUITests/Info.plist;
@@ -649,6 +855,7 @@
 		};
 		C44DC11D1F19A956003EF7D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 676A869E63CFB8114DB69244 /* Pods-BSKToolsBoxDemoUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = EM3XGA7J6B;
 				INFOPLIST_FILE = BSKToolsBoxDemoUITests/Info.plist;
