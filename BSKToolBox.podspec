@@ -90,8 +90,19 @@ Pod::Spec.new do |s|
   #  For header files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
-
-  s.source_files  = "BSKToolBox/*.{h,m}","BSKToolBox/Category/*.{h,m}","BSKToolBox/Utils/*.{h,m}","BSKToolBox/ViewController/*.{h,m}","BSKToolBox/View/**/*.{h,m}"
+  s.source_files  = "BSKToolBox/*.{h,m}"
+  s.subspec 'Category' do |ss|
+  s.source_files  = "BSKToolBox/Category/*.{h,m}"
+  end
+  s.subspec 'Utils' do |ss|
+  s.source_files  = "BSKToolBox/Utils/*.{h,m}"
+  end
+  s.subspec 'ViewController' do |ss|
+  s.source_files  = "BSKToolBox/ViewController/*.{h,m}"
+  end
+  s.subspec 'View' do |ss|
+  s.source_files  = "BSKToolBox/View/**/*.{h,m}"
+  end
 #s.exclude_files = "Classes/Exclude"
 
 # s.public_header_files = "Classes/**/*.h"
