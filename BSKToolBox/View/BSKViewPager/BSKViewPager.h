@@ -15,6 +15,8 @@ typedef NS_ENUM(NSInteger,BSKViewPagerItemAlignMode){
     BSKViewPagerItemAlignModeAverage//平均
 };
 
+
+
 @class BSKViewPager;
 
 @protocol BSKViewPagerDelegate<NSObject>
@@ -56,7 +58,7 @@ typedef NS_ENUM(NSInteger,BSKViewPagerItemAlignMode){
 @property (strong, nonatomic) UIImage * imageForStatusUp;//升序的按钮图片
 @property (strong, nonatomic) UIImage * imageForStatusDown;//降序的按钮图片
 @property (strong, nonatomic) UIImage * imageForStatusNormale;//未选中时的按钮图片
-@property (strong, nonatomic) NSArray * titles;//显示的按钮标题们
+@property (strong, nonatomic) NSArray <NSString * >* titles;//显示的按钮标题们
 @property (strong, nonatomic) UIColor * tintColor;//前景色
 @property (strong, nonatomic) UIColor * selectedTintColor;//选中按钮的前景色
 @property (strong, nonatomic) UIColor * bottomLineColor;//底部线条颜色
@@ -65,11 +67,13 @@ typedef NS_ENUM(NSInteger,BSKViewPagerItemAlignMode){
 @property (assign, nonatomic) CGFloat padingLeftAndRight;//距离左右的内边距
 @property (weak, nonatomic) id<BSKViewPagerDelegate> delegate;//点击事件代理
 @property (assign, nonatomic) CGFloat minimumItemWidth;
+@property (assign, nonatomic) BOOL autoScrollToCenter;//自动滚动到中间
 @property (assign, nonatomic) CGFloat imageWidth;//设置图片宽度，高度等于宽度。默认为14
 @property (assign, nonatomic) BSKViewPagerItemAlignMode itemAlignMode;//当item较少的时候的对齐方式.默认为’BSKViewPagerItemAlignModeAverage(平均)'
 @property (assign, nonatomic) BOOL showBootomLine;
 
 -(void)setCurentSelectedIndex:(NSInteger)selectedIndex;
+-(void)reload;
 @end
 
 

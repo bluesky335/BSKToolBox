@@ -18,7 +18,14 @@
  @return UIColor
  */
 +(UIColor * _Nonnull)bsk_ColorWithHex:(int32_t)hex;
+
 +(UIColor * _Nonnull)bsk_ColorWithRGBAHex:(int32_t)hex;
-+(UIColor * _Nonnull)bsk_ColorWithHex:(int32_t)hex alpha:(CGFloat)a;
-+(UIColor * _Nonnull)bsk_colorWithRed:(unsigned short)r green:(unsigned short)g blue:(unsigned short)b alpha:(unsigned short)a;
+
++(UIColor * _Nonnull)bsk_ColorWithHex:(int32_t)hex
+                                alpha:(CGFloat)a;
+
++(UIColor * _Nonnull)bsk_colorWithRed:(unsigned short)r
+                                green:(unsigned short)g
+                                 blue:(unsigned short)b
+                                alpha:(unsigned short)a;
 @end

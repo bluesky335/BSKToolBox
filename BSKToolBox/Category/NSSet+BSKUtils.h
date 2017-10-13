@@ -12,7 +12,6 @@
 
 /**
  获取集合的所有子集
-
  @return 子集数组
  */
 -(NSArray<NSSet *>* __nonnull )bsk_getAllSubSet;

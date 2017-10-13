@@ -45,6 +45,8 @@
     _showShadow = YES;
     _darkenCenterViewController = YES;
     _animationDurationTime = 0.2;
+    _openFlag = 0.1;
+    _closeFlag = 0.7;
     _frameToRespondOpenGesture = CGRectZero;
 }
 
@@ -59,7 +61,14 @@
     self.centerMaskView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     self.closeDrawerTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeDrawerTapAction:)];
     [self.centerMaskView addGestureRecognizer:self.closeDrawerTapGesture];
+    @try{
+        [self performSegueWithIdentifier:@"BSK_DCenter" sender:self];
+        [self performSegueWithIdentifier:@"BSK_DLeft" sender:self];
+    }@catch(NSException * e){
+        NSLog(@"%@",e);
+    }
 }
+
 
 -(void)closeDrawerTapAction:(UITapGestureRecognizer *)tap{
     [self closeDrawer];
@@ -341,9 +350,10 @@
         }
             break;
         default:
-        { CGFloat flag = 0.7f;
+        {
+            CGFloat flag = self.closeFlag;
             if (!self.isDrawerOpen) {
-                flag = 0.3f;
+                flag = self.openFlag;
             }
             if (self.openDrawerProgress>flag) {
                 //如果进度大于flag就打开抽屉
@@ -451,9 +461,9 @@
         }
             break;
         case UIGestureRecognizerStateEnded:{
-            CGFloat flag = 0.7f;
+            CGFloat flag = self.closeFlag;
             if (!self.isDrawerOpen) {
-                flag = 0.3f;
+                flag = self.openFlag;
             }
             if (self.openDrawerProgress>flag) {
                 //如果进度大于flag就打开抽屉
@@ -571,9 +581,9 @@
         }
             break;
         case UIGestureRecognizerStateEnded:{
-            CGFloat flag = 0.7f;
+            CGFloat flag = self.closeFlag;
             if (!self.isDrawerOpen) {
-                flag = 0.3f;
+                flag = self.openFlag;
             }
             if (self.openDrawerProgress>flag) {
                 //如果进度大于flag就打开抽屉
@@ -688,9 +698,9 @@
         }
             break;
         case UIGestureRecognizerStateEnded:{
-            CGFloat flag = 0.7f;
+            CGFloat flag = self.closeFlag;
             if (!self.isDrawerOpen) {
-                flag = 0.3f;
+                flag = self.openFlag;
             }
             if (self.openDrawerProgress>flag) {
                 //如果进度大于flag就打开抽屉
@@ -780,5 +790,23 @@
     return YES;
 }
 
+
+@end
+
+
+@implementation BSKDrawerViewControllerSegue
+
+-(void)perform{
+    if ([self.sourceViewController isKindOfClass:[BSKDrawerViewController class]]) {
+        BSKDrawerViewController * vc = self.sourceViewController;
+        if ([self.identifier isEqualToString:@"BSK_DCenter"]) {
+            vc.centerViewController = self.destinationViewController;
+        }else if ([self.identifier isEqualToString:@"BSK_DLeft"]){
+            vc.leftViewController = self.destinationViewController;
+        }
+    }else{
+        [super perform];
+    }
+}
 
 @end

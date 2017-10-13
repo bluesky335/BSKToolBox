@@ -10,6 +10,10 @@
 
 @interface UIView (BSKUtils)
 -(void)bsk_addShadow;
+
 -(void)bsk_addShadowsmall;
--(void)bsk_addBorderWithColor:(UIColor *)color Width:(CGFloat)width cornerRadius:(CGFloat)radius;
+
+-(void)bsk_addBorderWithColor:(UIColor *)color
+                        Width:(CGFloat)width
+                 cornerRadius:(CGFloat)radius;
 @end

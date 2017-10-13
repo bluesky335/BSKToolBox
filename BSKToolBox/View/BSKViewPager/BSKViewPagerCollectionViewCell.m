@@ -26,19 +26,37 @@
     // Initialization code
 }
 
+-(void)changeImageStatus{
+    if (!_canChangeStatus) {
+        self.leftImage.hidden = YES;
+        self.rightImage.hidden = YES;
+        self.titleLabelCenter.constant = 0;
+    }else{
+        if (_showImageOnRight) {
+            self.leftImage.hidden = YES;
+            self.rightImage.hidden = NO;
+            self.titleLabelCenter.constant = self.bounds.size.height*0.25*-1;
+        }else{
+            self.leftImage.hidden = NO;
+            self.rightImage.hidden = YES;
+            self.titleLabelCenter.constant = self.bounds.size.height*0.25;
+        }
+    }
+}
+
 -(void)setSelected:(BOOL)selected{
+    [super setSelected:selected];
     if (selected) {
         self.titleLabel.textColor = self.selectedTintColor;
     }else{
         self.titleLabel.textColor = self.tintColor;
     }
+    
 }
 
 -(void)setStatus:(BSKViewPagerItemStatus)status{
     _status = status;
     if (!_canChangeStatus) {
-        self.leftImage.hidden = YES;
-        self.rightImage.hidden = YES;
         return;
     }
     if (status==BSKViewPagerItemStatusUp) {
@@ -61,14 +79,7 @@
 }
 -(void)setCanChangeStatus:(BOOL)canChangeStatus{
     _canChangeStatus = canChangeStatus;
-    if (!_canChangeStatus) {
-        self.leftImage.hidden = YES;
-        self.rightImage.hidden = YES;
-        
-        if (!self.canChangeStatus) {
-            self.titleLabelCenter.constant = 0;
-        }
-    }
+    [self changeImageStatus];
 }
 
 -(void)setTitle:(NSString *)title{
@@ -97,20 +108,7 @@
 -(void)setShowImageOnRight:(BOOL)showImageOnRight{
 
     _showImageOnRight = showImageOnRight;
-    if (showImageOnRight) {
-        self.leftImage.hidden = YES;
-        self.rightImage.hidden = NO;
-        self.titleLabelCenter.constant = self.bounds.size.height*0.25*-1;
-    }else{
-        self.leftImage.hidden = NO;
-        self.rightImage.hidden = YES;
-        self.titleLabelCenter.constant = self.bounds.size.height*0.25;
-    }
-    if (!self.canChangeStatus) {
-        self.titleLabelCenter.constant = 0;
-        self.leftImage.hidden = YES;
-        self.rightImage.hidden = YES;
-    }
+    [self changeImageStatus];
 }
 -(void)setImageWidth:(CGFloat)imageWidth{
     _imageWidth = imageWidth;

@@ -192,7 +192,10 @@ typedef void(^cancelAction)(id _Nullable action);
  @param message 提示的内容
  @param sureAction 确定按钮的block
  */
-+ (void)popAlertControllerAndSureWithContl:(UIViewController *__nonnull)vc Title:(NSString *__nonnull)title message:(NSString *__nonnull)message sureAction:(sureAction __nonnull )sureAction;
++ (void)popAlertControllerAndSureWithContl:(UIViewController *__nonnull)vc
+                                     Title:(NSString *__nonnull)title
+                                   message:(NSString *__nonnull)message
+                                sureAction:(sureAction __nonnull )sureAction;
 
 
 /**
@@ -206,7 +209,13 @@ typedef void(^cancelAction)(id _Nullable action);
  @param cancelAction 确定按钮的block
  @param sureAction 取消按钮的block
  */
-+ (void)popAlertLeftAndRightActionWithContl:(UIViewController *__nonnull)vc Title:(NSString * __nonnull)title message:(NSString * __nonnull)message leftItem:(NSString * __nonnull)left rightItem:(NSString * __nonnull)right leftAction:(cancelAction __nonnull)cancelAction rightAction:(sureAction __nonnull)sureAction;
++ (void)popAlertLeftAndRightActionWithContl:(UIViewController *__nonnull)vc
+                                      Title:(NSString * __nonnull)title
+                                    message:(NSString * __nonnull)message
+                                   leftItem:(NSString * __nonnull)left
+                                  rightItem:(NSString * __nonnull)right
+                                 leftAction:(cancelAction __nonnull)cancelAction
+                                rightAction:(sureAction __nonnull)sureAction;
 
 #pragma mark - ● 从颜色创建图片
 
@@ -226,7 +235,8 @@ typedef void(^cancelAction)(id _Nullable action);
  @param size UIImage的大小
  @return UIImage
  */
-+ (UIImage* __nonnull) createImageWithColor: (UIColor* __nonnull) color Size:(CGSize)size;
++ (UIImage* __nonnull) createImageWithColor: (UIColor* __nonnull) color
+                                       Size:(CGSize)size;
 
 #pragma mark - ● 检查手机号的合法性
 /**
@@ -257,7 +267,8 @@ typedef void(^cancelAction)(id _Nullable action);
  *
  *  @return 返回的图片文件
  */
-+ (NSData * __nonnull)compressOriginalImage:(UIImage * __nonnull)image toMaxDataSizeKBytes:(CGFloat)size;
++ (NSData * __nonnull)compressOriginalImage:(UIImage * __nonnull)image
+                        toMaxDataSizeKBytes:(CGFloat)size;
 
 #pragma mark - ● 日历相关
 /**

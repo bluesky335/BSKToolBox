@@ -16,7 +16,6 @@
 -(NSString *_Nullable)bsk_sha512;
 /**
  获取字符串的MD5编码（32位，大写）
- 
  @return md5编码
  */
 -(NSString * __nonnull)bsk_MD5;

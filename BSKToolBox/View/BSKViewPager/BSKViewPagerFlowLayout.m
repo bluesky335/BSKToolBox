@@ -8,14 +8,23 @@
 
 #import "BSKViewPagerFlowLayout.h"
 
+@interface BSKViewPagerFlowLayout ()
+@end
+
 @implementation BSKViewPagerFlowLayout
+
+-(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds{
+    return YES;
+}
+
 -(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect{
     
-    NSArray* attributesToReturn = [super layoutAttributesForElementsInRect:rect];
-    
-    
-    if (_itemAlignMode!=BSKViewPagerItemAlignModeLeft) {
-        if (attributesToReturn.count==[self.collectionView numberOfItemsInSection:0]) {
+    NSArray* attributes = [super layoutAttributesForElementsInRect:rect];
+    NSMutableArray * attributesToReturn = [NSMutableArray array];
+    for (UICollectionViewLayoutAttributes * attr in attributes) {
+        [attributesToReturn addObject:[attr copy]];
+    }
+    if (_itemAlignMode!=BSKViewPagerItemAlignModeLeft&&attributesToReturn.count==[self.collectionView numberOfItemsInSection:0]) {
             CGFloat w = 0.0f;
             for (UICollectionViewLayoutAttributes * attri in attributesToReturn) {
                 w+=attri.frame.size.width;
@@ -41,27 +50,21 @@
                     }
                 }
             }
-        }
-    }
-    if (attributesToReturn.count>self.pager.selectedIndex) {
-        UICollectionViewLayoutAttributes * attri = attributesToReturn[self.pager.selectedIndex];
+            UICollectionViewLayoutAttributes * attri = attributesToReturn[self.pager.selectedIndex];
+            CGRect rec = attri.frame;
+            CGRect frame = CGRectMake(rec.origin.x, self.pager.bounds.size.height-3, rec.size.width, 3);
+            [UIView animateWithDuration:0.25 animations:^{
+                self.pager.rectView.frame = frame;
+            }];
+    }else{
+        UICollectionViewLayoutAttributes * attri = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:self.pager.selectedIndex inSection:0]];
         CGRect rec = attri.frame;
+        CGRect frame = CGRectMake(rec.origin.x, self.pager.bounds.size.height-3, rec.size.width, 3);
         [UIView animateWithDuration:0.25 animations:^{
-            self.pager.rectView.frame = CGRectMake(rec.origin.x, self.pager.bounds.size.height-3, rec.size.width, 3);
+            self.pager.rectView.frame = frame;
         }];
     }
     
-    
     return attributesToReturn;
 }
-
-//-(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{
-//    UICollectionViewLayoutAttributes *currentItemAttributes = [super layoutAttributesForItemAtIndexPath:indexPath];
-//    NSInteger rowCount = [self.collectionView numberOfItemsInSection:0];
-//
-//
-//
-//    return currentItemAttributes;
-//
-//}
 @end

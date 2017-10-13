@@ -7,7 +7,7 @@
 //
 
 #import "BSKSwitch.h"
-#import "UIColor+BSKUtils.h"
+
 
 @interface BSKSwitch ()
 
@@ -27,7 +27,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        self.on=YES;
+        //        self.on=YES;
         [self initialize];
     }
     return self;
@@ -38,7 +38,7 @@
     self = [super init];
     if (self) {
         self.frame = CGRectMake(0, 0, 70, 30);
-//        self.on=YES;
+        //        self.on=YES;
         [self initialize];
     }
     return self;
@@ -50,7 +50,7 @@
     if (self) {
         
         [self initialize];
-//        self.on=YES;
+        //        self.on=YES;
         
     }
     return self;
@@ -94,7 +94,7 @@
         self.offView.backgroundColor = self.offColor;
         self.ButtonView.backgroundColor = self.onButtonColor;
         if (_buttonTextLabel) {
-             _buttonTextLabel.textColor = self.onButtonTextColor?:self.onColor;
+            _buttonTextLabel.textColor = self.onButtonTextColor?:self.onColor;
             if (self.buttonText) {
                 _buttonTextLabel.text = self.buttonText;
             }
@@ -127,21 +127,24 @@
 
 -(void)initialize{
     
-    self.onColor = [UIColor bsk_ColorWithHex:0x77D672];
+    self.onColor = [UIColor colorWithRed:0x77/255.0 green:0xD6/255.0 blue:0x72/255.0 alpha:1];
     self.offColor = [UIColor whiteColor];
-    self.offBorderColor = [UIColor bsk_ColorWithHex:0xE6E6E6];
+    self.offBorderColor = [UIColor colorWithRed:0xE6/255.0 green:0xE6/255.0 blue:0xE6/255.0 alpha:1];
     self.offButtonColor = [UIColor whiteColor];
     self.onButtonColor = [UIColor whiteColor];
     self.offButtonTextColor = [UIColor lightGrayColor];
-    
+    self.backgroundColor = [UIColor clearColor];
     [self addSubview:self.boardView];
     [self.boardView addSubview:self.offView];
     [self.boardView addSubview:self.onView];
     [self addSubview:self.ButtonView];
     self.CornerRadius = 15;
+    
+#if TARGET_INTERFACE_BUILDER
     self.buttonText = @"";
     self.onText = @"";
     self.offText = @"";
+#endif
     
     self.boardView.backgroundColor = self.offBorderColor;
     self.offView.backgroundColor = self.offColor;
@@ -152,9 +155,6 @@
     self.ButtonView.layer.shadowOffset = CGSizeMake(0, 0);
     self.ButtonView.layer.shadowRadius = 2;
     self.ButtonView.layer.shadowOpacity = 1;
-    
-//    self.offView.frame = CGRectMake(1, 1, self.bounds.size.width-2, self.bounds.size.height-2);
-    [self layoutMyViews];
     
     
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
@@ -168,7 +168,8 @@
 #pragma mark - ● GestureAction
 
 -(void)tapAction:(UITapGestureRecognizer *)gesture{
-       self.on = !self.isOn;
+    self.on = !self.isOn;
+    [self sendActionsForControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)panAction:(UIPanGestureRecognizer *)gesture{
@@ -181,7 +182,7 @@
         if (center.x>self.bounds.size.width-1-self.ButtonView.bounds.size.width/2) {
             center.x = self.bounds.size.width-1-self.ButtonView.bounds.size.width/2;
         }
-        [UIView animateWithDuration:0.25 animations:^{
+        [UIView animateWithDuration:0.35 animations:^{
             self.ButtonView.center = center;
             self.offView.transform = CGAffineTransformIdentity;
             self.onView.frame = CGRectMake(1, 1, (self.ButtonView.frame.origin.x-1+self.ButtonView.bounds.size.width/2), self.bounds.size.height-2);
@@ -206,7 +207,12 @@
             _onTextLabel.frame = CGRectMake(self.onView.bounds.size.width-self.ButtonView.bounds.size.width/2-TextWidth,0, TextWidth, self.onView.bounds.size.height);
         }
     }else {
-        self.on = [gesture locationInView:self].x >self.bounds.size.width/2;
+        BOOL panStatus = [gesture locationInView:self].x >self.bounds.size.width/2.0;
+        if (self.isOn!=panStatus) {
+            [self sendActionsForControlEvents:UIControlEventTouchUpInside];
+        }
+        self.on = panStatus;
+        
     }
 }
 
@@ -216,8 +222,8 @@
     _CornerRadius = CornerRadius;
     CGFloat sR = CornerRadius-1>0?CornerRadius-1:0;
     self.boardView.layer.cornerRadius = CornerRadius;
-        self.boardView.layer.masksToBounds = YES;
-//    self.onView.layer.cornerRadius = sR;
+    self.boardView.layer.masksToBounds = YES;
+    //    self.onView.layer.cornerRadius = sR;
     //    self.onView.layer.masksToBounds = YES;
     self.offView.layer.cornerRadius =sR;
     //    self.offView.layer.masksToBounds = YES;
@@ -233,7 +239,7 @@
     [self layoutMyViews];
     [self setColors];
 #else
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.35 animations:^{
         [self layoutMyViews];
         [self setColors];
     }];
@@ -364,3 +370,4 @@
     [self setColors];
 }
 @end
+

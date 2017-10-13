@@ -15,8 +15,9 @@ typedef NS_ENUM(NSInteger, BSKDrawerAnimationMode) {
     BSKDrawerAnimationStaticUncover
 };
 
+
 @interface BSKDrawerViewController : UIViewController
-@property (strong, nonatomic) UIViewController * leftViewController;//抽屉控制器
+@property (strong, nonatomic)IBOutlet UIViewController * leftViewController;//抽屉控制器
 @property (strong, nonatomic) UIViewController * centerViewController;//主体控制器
 @property (assign, nonatomic)  BSKDrawerAnimationMode animationMode;//动画模式
 @property (assign, nonatomic) BOOL isDrawerOpen;//抽屉是否打开  如果需要得到抽屉的打开与关闭事件，请用观察者模式监听这个属性。
@@ -26,7 +27,8 @@ typedef NS_ENUM(NSInteger, BSKDrawerAnimationMode) {
 @property (assign, nonatomic) BOOL showShadow;//是否显示阴影
 @property (assign, nonatomic) CGFloat animationDurationTime;//动画持续时间，默认0.2秒
 @property (assign, nonatomic) CGRect frameToRespondOpenGesture;//响应打开抽屉手势的区域 默认为整个controller。
-
+@property (assign, nonatomic) CGFloat openFlag;
+@property (assign, nonatomic) CGFloat closeFlag;
 
 /**
  关闭抽屉
@@ -50,3 +52,8 @@ typedef NS_ENUM(NSInteger, BSKDrawerAnimationMode) {
 -(void)openDrawerWithComplate:(void(^)(BOOL isDrawerOpen))complate;
 
 @end
+
+
+@interface BSKDrawerViewControllerSegue:UIStoryboardSegue
+@end
+

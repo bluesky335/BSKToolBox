@@ -5,6 +5,13 @@
 //  Created by 刘万林 on 2017/8/3.
 //  Copyright © 2017年 Me. All rights reserved.
 //
+#define BSK_SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+    _Pragma("clang diagnostic push") \
+    _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+    Stuff; \
+    _Pragma("clang diagnostic pop") \
+} while (0)
 
 #import "BSKRadioButton.h"
 
@@ -43,9 +50,9 @@
     }
 }
 
+
 -(void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents{
     [super addTarget:self action:@selector(BSK_buttonAction:) forControlEvents:controlEvents];
-    
     self.target = target;
     self.BSK_Action = action;
 }
@@ -54,7 +61,7 @@
     self.selected = YES;
     if (self.target&&[self.target respondsToSelector:self.BSK_Action]) {
         @try {
-            [self.target performSelector:_BSK_Action withObject:self];
+            BSK_SuppressPerformSelectorLeakWarning([self.target performSelector:_BSK_Action withObject:self]);
         } @catch (NSException *exception) {
             
         } @finally {

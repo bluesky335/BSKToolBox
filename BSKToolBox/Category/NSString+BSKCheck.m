@@ -20,7 +20,7 @@
 }
 
 -(BOOL)bsk_isMobilePhoneNumber{
-   return [self bsk_matchesWithRegex:@"^(1[0-9])\\d{9}$"];
+    return [self bsk_matchesWithRegex:@"^(1[0-9])\\d{9}$"];
 }
 
 -(BOOL)bsk_isPhoneNumber{

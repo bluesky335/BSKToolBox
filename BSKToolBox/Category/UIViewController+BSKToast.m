@@ -25,7 +25,12 @@
     static BSKToastConfig * Config = nil;
     if (!Config) {
         Config = [[BSKToastConfig alloc] init];
-        
+        Config.ShadowRadius = 4;
+        Config.ShadowAlpha = 0.5;
+        Config.ToastCornerRadius = 5;
+        Config.ToastTextColor = [UIColor whiteColor];
+        Config.ToastBackgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.7];
+        Config.ToastTextFont = [UIFont systemFontOfSize:15 weight:UIFontWeightThin];
     }
     return Config;
 }
@@ -44,12 +49,19 @@
 
 -(void)keyboardWillShow:(NSNotification*)aNotification{
     self.kbWillShowNotification = aNotification;
-    [BSKToastConfig shareInstance].keyBoardSize =  [[aNotification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    self.keyBoardSize =  [[aNotification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     self.isKeyboardShowing = YES;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.ToastView.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-(self.ToastLabel.bounds.size.height+20)-10-self.keyBoardSize.height);
+    }];
+
 }
 
 -(void)keyboardWillHide:(NSNotification*)aNotification{
     self.isKeyboardShowing = NO;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.ToastView.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-(self.ToastLabel.bounds.size.height+20)-50);
+    }];
 }
 
 
@@ -159,7 +171,6 @@
                error:(id)iserror
              Animate:(BOOL) animate
 {
-    NSLog(@"执行了一次");
     UIView * toastView = [BSKToastConfig shareInstance].ToastView;
     if (!toastView) {
         toastView = [[UIView alloc] init];
@@ -175,18 +186,16 @@
         [BSKToastConfig shareInstance].ToastLabel = toastLabel;
     }
     
-    UIFont * toastFont = [UIFont systemFontOfSize:15 weight:UIFontWeightThin];
-    
     [toastView addSubview:toastLabel];
     [view addSubview:toastView];
     toastLabel.numberOfLines = 1;
-    toastLabel.font = toastFont;
+    toastLabel.font = [BSKToastConfig shareInstance].ToastTextFont;
     toastLabel.text = text;
     [toastLabel sizeToFit];
     
     if (toastLabel.bounds.size.width+60>BSKScreenWidth) {
         CGRect bounds = toastLabel.bounds;
-        CGSize textSize = [text boundingRectWithSize:CGSizeMake(BSKScreenWidth-60, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:toastFont} context:nil].size;
+        CGSize textSize = [text boundingRectWithSize:CGSizeMake(BSKScreenWidth-60, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[BSKToastConfig shareInstance].ToastTextFont} context:nil].size;
         bounds.size = textSize;
         toastLabel.numberOfLines = 0;
         toastLabel.bounds = bounds;
@@ -205,14 +214,14 @@
     if (iserror) {
         toastView.backgroundColor = [UIColor colorWithRed:0xec/255 green:0x0f/255 blue:0x0e/255 alpha:1];
     }else{
-       toastView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.7];
+       toastView.backgroundColor = [BSKToastConfig shareInstance].ToastBackgroundColor;
     }
     toastView.layer.shadowColor = [UIColor blackColor].CGColor;
     toastView.layer.shadowOffset = CGSizeMake(3, 3);
-    toastView.layer.shadowRadius = 4;
-    toastView.layer.shadowOpacity = 0.5;
-    toastView.layer.cornerRadius = 5;
-    toastLabel.textColor = [UIColor whiteColor];
+    toastView.layer.shadowRadius = [BSKToastConfig shareInstance].ShadowRadius;
+    toastView.layer.shadowOpacity = [BSKToastConfig shareInstance].ShadowAlpha;
+    toastView.layer.cornerRadius = [BSKToastConfig shareInstance].ToastCornerRadius;;
+    toastLabel.textColor = [BSKToastConfig shareInstance].ToastTextColor;
     
     if (animate) {
         toastView.alpha=0;

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@interface BSKNSStringUtilsConfig : NSObject
++( instancetype _Nonnull)shareConfig;
+-(void)setCIBucketName:(nonnull NSString * )bucketName;
+@end
+
+
 @interface NSString (BSKUtils)
 
 /**
@@ -34,18 +40,25 @@
 -(BOOL)bsk_isEndWith:(NSString*__nonnull)str;
 
 /**
+ 为字符串添加删除线，返回一个NSMutableAttributedString
+ 
+ @return 添加了删除线的NSMutableAttributedString
+ */
+-(NSMutableAttributedString *__nonnull)bsk_addDeleteLine;
+
+/**
  用字符串创建一个NSURL
 
  @return NSURL
  */
--(NSURL*__nonnull)bsk_UrlFromeHttpString;
+-(NSURL*__nullable)bsk_UrlFromeString;
 
 /**
  替换字符串中的@“http://”为@“https://” 并以此创建一个NSURL
  
  @return NSURL
  */
--(NSURL*__nonnull)bsk_HttpsUrlFromeHttpString;
+-(NSURL* __nullable)bsk_HttpsUrlFromeHttpString;
 
 
 /**
@@ -64,14 +77,8 @@
  @param height 图片高度
  @return 处理之后的图片url
  */
--(NSURL*__nonnull)bsk_CIImageHttpsUrlWithWidth:(CGFloat)width Height:(CGFloat)height;
+-(NSURL*__nonnull)bsk_CIImageHttpsUrlWithWidth:(CGFloat)width
+                                        Height:(CGFloat)height;
 
-
-/**
- 为字符串添加删除线，返回一个NSMutableAttributedString
-
- @return 添加了删除线的NSMutableAttributedString
- */
--(NSMutableAttributedString *__nonnull)bsk_addDeleteLine;
 
 @end

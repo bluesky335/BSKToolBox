@@ -8,6 +8,27 @@
 
 #import "NSString+BSKUtils.h"
 
+@interface BSKNSStringUtilsConfig()
+@property (copy, nonatomic) NSString * bucketName;
+@end
+
+@implementation BSKNSStringUtilsConfig
+
++(instancetype)shareConfig{
+    static BSKNSStringUtilsConfig * cfg = nil;
+    if (!cfg) {
+       cfg = [[BSKNSStringUtilsConfig alloc] init];
+        cfg.bucketName = nil;
+    }
+    return cfg;
+}
+
+-(void)setCIBucketName:(NSString *)bucketName{
+    self.bucketName = bucketName;
+}
+
+@end
+
 @implementation NSString (BSKUtils)
 
 -(BOOL)bsk_isEmptyString{
@@ -23,10 +44,11 @@
 }
 
 
--(NSURL*__nonnull)bsk_UrlFromeHttpString{
+-(NSURL*__nullable)bsk_UrlFromeString{
     return [NSURL URLWithString:self];
 }
--(NSURL*__nonnull)bsk_HttpsUrlFromeHttpString{
+-(NSURL*__nullable)bsk_HttpsUrlFromeHttpString{
+    
     NSString * httpsStr = [self stringByReplacingOccurrencesOfString:@"http://" withString:@"https://"];
     return [NSURL URLWithString:httpsStr];
 }
@@ -41,20 +63,34 @@
     NSMutableString * mstr = [[self stringByReplacingOccurrencesOfString:@"http://"
                                                               withString:@"https://"] mutableCopy];
     
-    NSRange range = [mstr rangeOfString:@"://town-1253237305.file.myqcloud.com"];
-    
-    if (range.location != NSNotFound) {
-        [mstr replaceCharactersInRange:range withString:@"://town-1253237305.image.myqcloud.com"];
+    if ([BSKNSStringUtilsConfig shareConfig].bucketName) {
+        NSString * str = [NSString stringWithFormat:@"://%@.file.myqcloud.com",[BSKNSStringUtilsConfig shareConfig].bucketName];
+        NSString * str2 = [NSString stringWithFormat:@"://%@.cosgz.myqcloud.com",[BSKNSStringUtilsConfig shareConfig].bucketName];
+        NSString * CIStr = [NSString stringWithFormat:@"://%@.image.myqcloud.com",[BSKNSStringUtilsConfig shareConfig].bucketName];
+        
+        NSRange range = [mstr rangeOfString:str];
+        if (range.location != NSNotFound) {
+            [mstr replaceCharactersInRange:range withString:CIStr];
+        }
+        
+        range = [self rangeOfString:str2];
+        if (range.location != NSNotFound) {
+            [mstr replaceCharactersInRange:range withString:CIStr];
+        }
+        
+    }else{
+        NSRange range = [mstr rangeOfString:@".file.myqcloud.com"];
+        if (range.location != NSNotFound) {
+            [mstr replaceCharactersInRange:range withString:@".image.myqcloud.com"];
+        }
+        
+        range = [self rangeOfString:@".cosgz.myqcloud.com"];
+        if (range.location != NSNotFound) {
+            [mstr replaceCharactersInRange:range withString:@".image.myqcloud.com"];
+        }
+        
     }
-    
-    range = [self rangeOfString:@"town-1253237305.cosgz.myqcloud.com"];
-    
-    if (range.location != NSNotFound) {
-        [mstr replaceCharactersInRange:range withString:@"town-1253237305.image.myqcloud.com"];
-    }
-    
     [mstr appendFormat:@"?imageView2/3/w/%lf/h/%lf",width*scale,height*scale];
-    
     
     return [NSURL URLWithString:mstr];
 }

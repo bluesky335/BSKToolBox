@@ -8,7 +8,7 @@
 
 #import "BSKViewPager.h"
 #import "BSKViewPagerFlowLayout.h"
-
+#import "BSKUtils.h"
 @interface BSKViewPagerStatusModel : NSObject
 @property (assign, nonatomic) BSKViewPagerItemStatus status;
 @property (assign, nonatomic) BOOL selected;
@@ -30,7 +30,6 @@
         }else{
             self.status = BSKViewPagerItemStatusNormal;
         }
-       
     }
 }
 
@@ -41,6 +40,7 @@
 @property (strong, nonatomic) UIView * lineView;
 @property (strong, nonatomic) BSKViewPagerFlowLayout  *layout;
 @property (strong, nonatomic) NSMutableArray<BSKViewPagerStatusModel *>* statusArray;
+@property (strong, nonatomic) NSMutableDictionary * itemSize;
 @end
 @implementation BSKViewPager
 
@@ -61,11 +61,9 @@
     }
     return self;
 }
-
-
-
 -(void)initializeViewPager
 {
+    self.imageWidth = 14;
     _padingLeftAndRight = 0;
     [self setCurentSelectedIndex:0];
     _tintColor = [UIColor darkTextColor];
@@ -77,10 +75,10 @@
     _minimumItemWidth = 30;
     _showImageOnRight = NO;
     _itemAlignMode = BSKViewPagerItemAlignModeAverage;
-    self.imageForStatusUp = [UIImage imageNamed:@"升序"];
-    self.imageForStatusDown = [UIImage imageNamed:@"降序"];
-    self.imageForStatusNormale = [UIImage imageNamed:@"排序"];
-    self.rectView = [[UIView alloc]initWithFrame:CGRectMake(0, 100, 0, 0)];
+    self.imageForStatusUp = [UIImage imageNamed:@"BSK_升序"];
+    self.imageForStatusDown = [UIImage imageNamed:@"BSK_降序"];
+    self.imageForStatusNormale = [UIImage imageNamed:@"BSK_默认"];
+    self.rectView = [[UIView alloc]initWithFrame:CGRectMake(0,0,0,0)];
     self.lineView.backgroundColor = self.selectedTintColor;
     self.rectView.backgroundColor = self.selectedTintColor;
     self.userInteractionEnabled = YES;
@@ -90,6 +88,12 @@
     self.buttonCollectionView.allowsSelection = YES;
     self.buttonCollectionView.allowsMultipleSelection = NO;
     [self setNeedsLayout];
+    
+#if TARGET_INTERFACE_BUILDER
+    self.backgroundColor = [UIColor redColor];
+    self.titles = @[@"item",@"item2",@"item3"];
+#endif
+    
 }
 
 -(void)layoutSubviews{
@@ -98,8 +102,6 @@
     self.buttonCollectionView.frame = CGRectMake(self.padingLeftAndRight, 0, self.bounds.size.width-2*self.padingLeftAndRight, self.bounds.size.height);
 }
 
-
-
 #pragma mark - UICollectionViewDataSource,UICollectionViewDelegate
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -107,33 +109,48 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    BSKViewPagerStatusModel * status = self.statusArray[indexPath.row];
+    if([self.delegate respondsToSelector:@selector(ViewPager:canChangeStatusAtIndex:)]){
+        status.canChangeStstus = [self.delegate ViewPager:self canChangeStatusAtIndex:indexPath.row];
+    }else{
+        status.canChangeStstus = NO;
+    }
     if (self.delegate&&[self.delegate respondsToSelector:@selector(ViewPager:widthForItemAtIndex:)]) {
         CGFloat wihth = [self.delegate ViewPager:self widthForItemAtIndex:indexPath.row];
-        return CGSizeMake(wihth>_minimumItemWidth?wihth:_minimumItemWidth, self.bounds.size.height);
+        CGSize size = CGSizeMake(wihth>_minimumItemWidth?wihth:_minimumItemWidth, self.bounds.size.height);
+        self.itemSize[BSKIntToStr(indexPath.row)] = NSStringFromCGSize(size);
+        return size;
     }
     else{
         NSString * text = self.statusArray[indexPath.row].title;
         CGSize recSize = [text boundingRectWithSize:CGSizeMake(MAXFLOAT, 100) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.titleFont} context:nil].size;
         if (self.statusArray[indexPath.row].canChangeStstus) {
-            return CGSizeMake(recSize.width+30, self.bounds.size.height);
+            CGSize size = CGSizeMake(recSize.width+self.imageWidth+20, self.bounds.size.height);
+            self.itemSize[BSKIntToStr(indexPath.row)] = NSStringFromCGSize(size);
+            return size;
         }
-        return CGSizeMake(recSize.width+10, self.bounds.size.height);
+        
+        CGSize size = CGSizeMake(recSize.width+10, self.bounds.size.height);
+        self.itemSize[BSKIntToStr(indexPath.row)] = NSStringFromCGSize(size);
+        return size;
     }
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     BSKViewPagerCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    BSKViewPagerStatusModel * status = self.statusArray[indexPath.row];
     [cell setTitleFont:self.titleFont ];
     cell.selectedTintColor = self.selectedTintColor;
-    cell.tintColor = self.tintColor;
-    cell.selected = self.statusArray[indexPath.row].selected;
-    cell.title = self.statusArray[indexPath.row].title;
-    cell.imageForNormal = self.imageForStatusNormale;
-    cell.imageForDown = self.imageForStatusDown;
-    cell.imageForUp = self.imageForStatusUp;
-    cell.canChangeStatus =self.statusArray[indexPath.row].canChangeStstus;
-    cell.status = self.statusArray[indexPath.row].status;
-    cell.showImageOnRight = self.showImageOnRight;
+    cell.tintColor         = self.tintColor;
+    cell.imageForNormal    = self.imageForStatusNormale;
+    cell.imageForDown      = self.imageForStatusDown;
+    cell.imageForUp        = self.imageForStatusUp;
+    cell.selected          = status.selected;
+    cell.title             = status.title;
+    cell.canChangeStatus   = status.canChangeStstus;
+    cell.status            = status.status;
+    cell.showImageOnRight  = self.showImageOnRight;
+    cell.imageWidth        = self.imageWidth;
     return cell;
 }
 
@@ -154,15 +171,10 @@
     _titles = titles;
     NSMutableArray<BSKViewPagerStatusModel *> * array = [NSMutableArray array];
     for (NSString * str in titles) {
-        NSInteger index = [titles indexOfObject:str];
         BSKViewPagerStatusModel * status = [[BSKViewPagerStatusModel alloc] init];
-        status.title = str;
-        status.status = BSKViewPagerItemStatusNormal;
-        if([self.delegate respondsToSelector:@selector(ViewPager:canChangeStatusAtIndex:)]){
-            status.canChangeStstus = [self.delegate ViewPager:self canChangeStatusAtIndex:index];
-        }else{
-            status.canChangeStstus = NO;
-        }
+        status.title                     = str;
+        status.status                    = BSKViewPagerItemStatusNormal;
+        
         [array addObject:status];
     }
     if (array.count>0) {
@@ -170,16 +182,43 @@
     }
     self.statusArray = array;
     [self.buttonCollectionView reloadData];
+    [self.buttonCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
 }
 -(void)setCurentSelectedIndex:(NSInteger)selectedIndex{
-    _selectedIndex = selectedIndex;
-    if (_selectedIndex<self.titles.count) {
-        [self.buttonCollectionView reloadData];
+    self.selectedIndex = selectedIndex;
+}
+
+-(void)reload{
+    NSMutableArray<BSKViewPagerStatusModel *> * array = [NSMutableArray array];
+    for (NSString * str in self.titles) {
+        BSKViewPagerStatusModel * status = [[BSKViewPagerStatusModel alloc] init];
+        status.title                     = str;
+        status.status                    = BSKViewPagerItemStatusNormal;
+        
+        [array addObject:status];
     }
+    if (array.count>self.selectedIndex) {
+        array[self.selectedIndex].selected = YES;
+    }else if(array.count>0){
+        _selectedIndex = 0;
+    }
+    self.statusArray = array;
+    [self.layout invalidateLayout];
+    [self.buttonCollectionView reloadData];
+    self.selectedIndex = self.selectedIndex;//为了更新选中index的"canChangeStstus";
 }
 
 -(void)setSelectedIndex:(NSInteger)selectedIndex{
     
+    if (!(selectedIndex<self.titles.count)) {
+        return ;
+    }
+    BSKViewPagerStatusModel * status = self.statusArray[selectedIndex];
+    if([self.delegate respondsToSelector:@selector(ViewPager:canChangeStatusAtIndex:)]){
+        status.canChangeStstus = [self.delegate ViewPager:self canChangeStatusAtIndex:selectedIndex];
+    }else{
+        status.canChangeStstus = NO;
+    }
     if (selectedIndex!=_selectedIndex) {
         for ( BSKViewPagerStatusModel * status in self.statusArray) {
             if (status.selected) {
@@ -189,11 +228,14 @@
     }
     self.statusArray[selectedIndex].selected = YES;
     _selectedIndex = selectedIndex;
-    if (_selectedIndex<self.titles.count) {
-        [self.buttonCollectionView reloadData];
+    
+    if ([self.buttonCollectionView indexPathsForSelectedItems].count==0||[self.buttonCollectionView indexPathsForSelectedItems].firstObject.row!=selectedIndex) {
+        [self.buttonCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] animated:YES scrollPosition:self.autoScrollToCenter?UICollectionViewScrollPositionCenteredHorizontally:UICollectionViewScrollPositionNone];
+    }else{
+        [self.buttonCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] atScrollPosition:self.autoScrollToCenter?UICollectionViewScrollPositionCenteredHorizontally:UICollectionViewScrollPositionNone animated:YES];
     }
-    [self.buttonCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    [self.buttonCollectionView setNeedsLayout];
+    [self.layout invalidateLayout];
+    [[self buttonCollectionView] reloadData];
     if (self.delegate&&[self.delegate respondsToSelector:@selector(ViewPager:didSelectedItemAtIndex:withStatus:)]) {
         [self.delegate ViewPager:self didSelectedItemAtIndex:selectedIndex withStatus:self.statusArray[selectedIndex].status];
     }else if (self.delegate&&[self.delegate respondsToSelector:@selector(ViewPager:didSelectedItemAtIndex:)]) {
@@ -235,6 +277,12 @@
 -(void)setItemAlignMode:(BSKViewPagerItemAlignMode)itemAlignMode{
     _itemAlignMode = itemAlignMode;
     self.layout.itemAlignMode = itemAlignMode;
+}
+
+-(void)setDelegate:(id<BSKViewPagerDelegate>)delegate{
+    _delegate = delegate;
+    self.selectedIndex = self.selectedIndex;//为了更新选中index的"canChangeStstus";
+    [self.buttonCollectionView reloadData];
 }
 
 #pragma mark - getter
