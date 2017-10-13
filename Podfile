@@ -6,10 +6,10 @@ target 'BSKToolsBoxDemo' do
   # use_frameworks!
 
   # Pods for BSKToolsBoxDemo
-  pod 'SDAutoLayout', '~> 2.2.0'
+#  pod 'SDAutoLayout', '~> 2.2.0'
   target 'BSKToolsBoxDemoTests' do
     inherit! :search_paths
-    # Pods for testing
+    # Pods for testing	
   end
 
   target 'BSKToolsBoxDemoUITests' do
