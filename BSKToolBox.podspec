@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BSKToolBox"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "我的工具箱，一些封装好的方便的方法、工具类、视图和控制器等等。"
 
   # This description is used to generate tags and improve search results.
