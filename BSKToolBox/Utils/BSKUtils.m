@@ -161,7 +161,6 @@
 }
 #pragma mark ------------------------------ 导航 - 高德
 
-
 + (void)naviGationByGaoDeMapTo:(NSString *)name
                       Latitude:(CGFloat)latitude
                      Longitude:(CGFloat)longitude
@@ -189,9 +188,7 @@
     
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]])
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:@{} completionHandler:^(BOOL success) {
-            
-        }];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     } else {
         [UIViewController bsk_MakeToast:@"请先安装高德地图" WithTime:1];
     }
@@ -224,13 +221,10 @@
     NSLog(@"--url = : %@",url);
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]])// -- 使用 canOpenURL 判断需要在
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:@{} completionHandler:^(BOOL success) {
-            
-        }];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     }else{
         [UIViewController bsk_MakeToast:@"请先安装百度地图" WithTime:1];
-    }
-
+    }    
 }
 #pragma mark ------------------------------ 导航 - 腾讯
 + (void)naviGationByQQuMapTo:(NSString *)name
@@ -260,9 +254,7 @@
     NSLog(@"--url = : %@",url);
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"qqmap://"]])
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:@{} completionHandler:^(BOOL success) {
-            
-        }];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     }else{
         [UIViewController bsk_MakeToast:@"请先安装腾讯地图" WithTime:1];
     }

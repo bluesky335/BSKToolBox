@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -90,19 +90,10 @@ Pod::Spec.new do |s|
   #  For header files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
-  s.source_files  = "BSKToolBox/*.{h,m}"
-  s.subspec 'Category' do |ss|
-  s.source_files  = "BSKToolBox/Category/*.{h,m}"
-  end
-  s.subspec 'Utils' do |ss|
-  s.source_files  = "BSKToolBox/Utils/*.{h,m}"
-  end
-  s.subspec 'ViewController' do |ss|
-  s.source_files  = "BSKToolBox/ViewController/*.{h,m}"
-  end
-  s.subspec 'View' do |ss|
-  s.source_files  = "BSKToolBox/View/**/*.{h,m}"
-  end
+
+  s.source_files  = "BSKToolBox/*.{h,m}","BSKToolBox/Category/*.{h,m}","BSKToolBox/Utils/*.{h,m}","BSKToolBox/ViewController/*.{h,m}","BSKToolBox/View/**/*.{h,m}"
+  s.resource  = "BSKToolBox/**/*.xib"
+
 #s.exclude_files = "Classes/Exclude"
 
 # s.public_header_files = "Classes/**/*.h"
@@ -116,7 +107,6 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  s.resource  = "BSKToolBox/View/BSKViewPaher/*.xib"
   # s.resources = "Resources/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
