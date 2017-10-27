@@ -17,8 +17,8 @@
     const char *s = [self cStringUsingEncoding:NSUTF8StringEncoding];
     NSData *keyData = [NSData dataWithBytes:s length:strlen(s)];
     
-    uint8_t digest[CC_SHA256_DIGEST_LENGTH] = {0};
-    CC_SHA256(keyData.bytes, (CC_LONG)keyData.length, digest);
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH] = {0};
+    CC_SHA1(keyData.bytes, (CC_LONG)keyData.length, digest);
     NSData *out = [NSData dataWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];
     NSString *hash = [out description];
     hash = [hash stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -33,8 +33,8 @@
     const char *s = [self cStringUsingEncoding:NSUTF8StringEncoding];
     NSData *keyData = [NSData dataWithBytes:s length:strlen(s)];
     
-    uint8_t digest[CC_SHA256_DIGEST_LENGTH] = {0};
-    CC_SHA256(keyData.bytes, (CC_LONG)keyData.length, digest);
+    uint8_t digest[CC_SHA224_DIGEST_LENGTH] = {0};
+    CC_SHA224(keyData.bytes, (CC_LONG)keyData.length, digest);
     NSData *out = [NSData dataWithBytes:digest length:CC_SHA224_DIGEST_LENGTH];
     NSString *hash = [out description];
     hash = [hash stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -65,8 +65,8 @@
     const char *s = [self cStringUsingEncoding:NSUTF8StringEncoding];
     NSData *keyData = [NSData dataWithBytes:s length:strlen(s)];
     
-    uint8_t digest[CC_SHA256_DIGEST_LENGTH] = {0};
-    CC_SHA256(keyData.bytes, (CC_LONG)keyData.length, digest);
+    uint8_t digest[CC_SHA384_DIGEST_LENGTH] = {0};
+    CC_SHA384(keyData.bytes, (CC_LONG)keyData.length, digest);
     NSData *out = [NSData dataWithBytes:digest length:CC_SHA384_DIGEST_LENGTH];
     NSString *hash = [out description];
     hash = [hash stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -81,8 +81,8 @@
     const char *s = [self cStringUsingEncoding:NSUTF8StringEncoding];
     NSData *keyData = [NSData dataWithBytes:s length:strlen(s)];
     
-    uint8_t digest[CC_SHA256_DIGEST_LENGTH] = {0};
-    CC_SHA256(keyData.bytes, (CC_LONG)keyData.length, digest);
+    uint8_t digest[CC_SHA512_DIGEST_LENGTH] = {0};
+    CC_SHA512(keyData.bytes, (CC_LONG)keyData.length, digest);
     NSData *out = [NSData dataWithBytes:digest length:CC_SHA512_DIGEST_LENGTH];
     NSString *hash = [out description];
     hash = [hash stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -107,3 +107,4 @@
     return [md5string uppercaseString];
 }
 @end
+
