@@ -104,7 +104,7 @@
     for (int i = 0;i<16;i++) {
         [md5string appendFormat:@"%02x",md5data[i]];
     }
-    return [md5string uppercaseString];
+    return md5string;
 }
 @end
 
